@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #152127;
+  --color-secondary: teal;
+}
+
+*{
+    font-family: "Open Sans", sans-serif;
+    /* @apply bg-base-200; */
+    /* font-family: LandRoverWeb-Medium, Arial, Helvetica, sans-serif */
+    /* font-family:"AvenirNext", "arial", "helvetica", sans-serif; */
+            /* font-family: AvenirNext, Arial, Helvetica, sans-serif; */
+
+    /* @apply bg-[#152127] */
+    /* text-white */
+}
+ a.active{
+   @apply underline decoration-2 decoration-primary underline-offset-6;
+}
