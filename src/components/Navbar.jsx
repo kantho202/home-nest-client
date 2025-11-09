@@ -1,7 +1,7 @@
 import React, { use } from 'react';
 import { Link, Links, NavLink } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
-import button from 'daisyui/components/button';
+
 
 const Navbar = () => {
     const links = <>
