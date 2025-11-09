@@ -6,6 +6,7 @@ import button from 'daisyui/components/button';
 const Navbar = () => {
     const links = <>
         <NavLink to="/" className="mr-3 mb-3 lg:mb-0 text-[15px] text-[#0c121c] font-regular"><li>Home</li></NavLink>
+        <NavLink to="/allProperties" className="mr-3 mb-3 lg:mb-0 text-[15px] text-[#0c121c] font-regular"><li>All Properties</li></NavLink>
         <NavLink to="/addProperties" className="mr-3 mb-3 lg:mb-0 text-[15px] text-[#0c121c] font-regular"><li>Add Properties</li></NavLink>
         <NavLink to="/myProperties" className="mr-3 mb-3 lg:mb-0 text-[15px] text-[#0c121c] font-regular"><li>My Properties</li></NavLink>
         <NavLink to="/myRatings" className="mr-3 mb-3 lg:mb-0 text-[15px] text-[#0c121c] font-regular"><li>My Ratings</li></NavLink>

@@ -8,6 +8,7 @@ import MyProperties from "../Pages/MyProperties/MyProperties";
 import MyRatings from "../Pages/MyRatings/MyRatings";
 import LogIn from "../Pages/Auth/LogIn";
 import Register from "../Pages/Auth/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -24,15 +25,21 @@ const router = createBrowserRouter([
         },
         {
             path:'/addProperties',
-            element:<AddProperties></AddProperties>
+            element:<PrivateRoute>
+                <AddProperties></AddProperties>
+            </PrivateRoute>
         },
         {
             path:'/myProperties',
-            element:<MyProperties></MyProperties>
+            element:<PrivateRoute>
+                <MyProperties></MyProperties>
+            </PrivateRoute>
         },
         {
             path:'/myRatings',
-            element:<MyRatings></MyRatings>
+            element:<PrivateRoute>
+                <MyRatings></MyRatings>
+            </PrivateRoute>
         },
         {
             path:'/auth/logIn',
