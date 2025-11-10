@@ -9,6 +9,7 @@ import MyRatings from "../Pages/MyRatings/MyRatings";
 import LogIn from "../Pages/Auth/LogIn";
 import Register from "../Pages/Auth/Register";
 import PrivateRoute from "./PrivateRoute";
+import PropertiesDetails from "../components/PropertiesDetails";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,13 @@ const router = createBrowserRouter([
             Component:Home
         },
         {
+            path:'/properties-details/:id',
+            loader:({params})=>fetch(`http://localhost:3000/properties/${params.id}`),
+            element:<PropertiesDetails></PropertiesDetails>
+        },    
+        {
             path:'/allProperties',
+            loader:()=>fetch('http://localhost:3000/properties'),
             element:<AllProperties></AllProperties>
         },
         {
@@ -48,7 +55,8 @@ const router = createBrowserRouter([
         {
             path:'/auth/register',
             element:<Register></Register>
-        }
+        },
+       
 
     ]
   },

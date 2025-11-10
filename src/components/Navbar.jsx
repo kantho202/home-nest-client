@@ -12,13 +12,17 @@ const Navbar = () => {
         <NavLink to="/myRatings" className="mr-3 mb-3 lg:mb-0 text-[15px] text-[#0c121c] font-regular"><li>My Ratings</li></NavLink>
     </>
 
-    const { user ,signOutUser} = use(AuthContext)
-    const handleLogOut =()=>{
+    const { user, signOutUser } = use(AuthContext)
+    const handleLogOut = () => {
         signOutUser()
     }
     return (
 
-        <div className="navbar  lg:w-10/12 mx-auto ">
+
+
+
+
+        <div className="navbar   pl-4  ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -40,17 +44,42 @@ const Navbar = () => {
 
             </div>
 
-            <div className="navbar-end hidden lg:flex">
+            <div className="navbar-end hidden lg:flex pr-4">
                 <ul className="menu menu-horizontal px-1 hidden lg:flex justify-between ">
                     {links}
                 </ul>
                 {
-                    user ? <button onClick={handleLogOut} className='btn btn-sm btn-outline btn-primary '>LogOut</button>
-                        :
-                        <>
-                            <Link to="/auth/logIn" className="btn btn-sm mr-4 btn-outline btn-primary">LogIn</Link>
-                            <Link to="/auth/register" className="btn btn-sm btn-primary">Register</Link>
-                        </>
+                    user ?
+                <div className="flex gap-2">
+
+                    <div className="dropdown dropdown-end">
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                                <img
+                                    alt="Tailwind CSS Navbar component"
+                                    src={user?.photoURL} />
+                            </div>
+                        </div>
+                        <ul
+                            tabIndex="-1"
+                            className="menu menu-md dropdown-content bg-base-100 rounded-box z-2 mt-3 w-70 p-2 shadow">
+                            <li className=''>
+                                <a className="justify-between mb-3 ">
+                                    {user?.displayName}
+                                    <span className="badge">New</span>
+                                </a>
+                            </li>
+                            <li><a className='mb-3 p-2'>{user?.email}</a></li>
+                            <button onClick={handleLogOut} className='btn btn-sm btn-outline btn-primary '>LogOut</button>
+
+                        </ul>
+                    </div>
+                </div>
+                :
+                <>
+                    <Link to="/auth/logIn" className="btn btn-sm mr-4 btn-outline btn-primary">LogIn</Link>
+                    <Link to="/auth/register" className="btn btn-sm btn-primary ">Register</Link>
+                </>
                 }
 
             </div>
