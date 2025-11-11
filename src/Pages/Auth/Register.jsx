@@ -1,10 +1,12 @@
 import React, { use } from 'react';
 import { MdOutlineMailOutline } from 'react-icons/md';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
 
 const Register = () => {
     const {signInWithGoogle}=use(AuthContext)
+    const location =useLocation()
+    const navigate =useNavigate()
     const handleGoogleSingIn =()=>{
         signInWithGoogle()
         .then((result)=>{
@@ -25,8 +27,10 @@ const Register = () => {
             .then(res=>res.json())
             .then(data=>{
                 console.log(data)
+                
             })
             console.log(result.user)
+            navigate(`${location.state ? location.state : "/"}`)
         })
         .catch((error)=>{
             console.log(error)
