@@ -12,9 +12,10 @@ const Register = () => {
             const newUser ={
                 name:result.user.displayName,
                 email:result.user.email,
-                image:result.user.photoURL
+                image:result.user.photoURL,
+                // categories:result.user.category
             }
-            fetch('http://localhost:3000/users',{
+            fetch('http://localhost:3000/addProperties',{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'

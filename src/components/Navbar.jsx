@@ -33,15 +33,17 @@ const Navbar = () => {
                         
                         
                         <label htmlFor="my-drawer-1" className="">
-                               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 curp" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
 
                         </label>
                     </div>
                     <div className="drawer-side">
                         <label htmlFor="my-drawer-1" aria-label="close sidebar" className="drawer-overlay"></label>
-                        <ul className="menu bg-base-200 min-h-full w-80 p-4">
+                        <ul className="menu bg-base-200 min-h-full text-center w-80 p-4">
                            
                             {links}
+                            <Link to="/auth/logIn" className="btn btn-sm mr-4 mb-3 btn-outline w-full btn-primary">LogIn</Link>
+                            <Link to="/auth/register" className="btn btn-sm w-full btn-primary ">Register</Link>
                         </ul>
                     </div>
                 </div>

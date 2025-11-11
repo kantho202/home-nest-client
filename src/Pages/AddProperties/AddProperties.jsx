@@ -6,15 +6,22 @@ const AddProperties = () => {
     const { user } = use(AuthContext)
     const handleAddProperties = (e) => {
         e.preventDefault()
+        const userName =e.target.name.value ;
+        const email =e.target.email.value;
         const propertiesName = e.target.propertyName.value;
         const description = e.target.description.value;
+        const category =e.target.category.value;
         const price = e.target.price.value;
-        const location = e.target.propertyName.value;
-        console.log(propertiesName, description, price, location)
+        const location = e.target.location.value;
+        console.log(propertiesName, description, price, location,userName,email)
 
         const newProperties = {
+            user_name:userName,
+            email:email,
+            user_image:user?.photoURL,
             property_name: propertiesName,
             description: description,
+            category:category,
             property_price: price,
             location: location
         }
@@ -77,7 +84,7 @@ const AddProperties = () => {
                                 <input type="text" name='name'
                                     className="input rounded-full w-full  "
                                     readOnly
-                                    defaultValue={user.displayName} placeholder='' />
+                                    defaultValue={user.displayName}  />
                                 {/* email */}
                                 <label className="label">Email Address</label>
                                 <div className='flex items-center relative '>
@@ -85,27 +92,28 @@ const AddProperties = () => {
                                     <input type="email"
                                         readOnly
                                         defaultValue={user?.email}
-                                        className="input rounded-full w-full read-only " name='email '
+                                        className="input rounded-full w-full read-only " name='email'
                                         placeholder={user?.email} />
                                 </div>
 
 
-                                {/* password */}
+                                {/* properties name */}
                                 <label className="label">Property Name</label>
                                 <input type="text" name='propertyName' required
                                  className="input rounded-full w-full" placeholder="Property Name" />
-                                {/* password */}
+                                {/* description */}
                                 <label className="label">Description</label>
                                 <input type="text" name='description'  required
                                 className="input rounded-full w-full" placeholder="Description" />
-                                {/* password */}
+                                {/* categories */}
                                 <label className="label">Category</label>
-                                <input type="dropdown" className="input rounded-full w-full" placeholder="" />
-                                {/* password */}
+                                <input type="dropdown"  name='category'
+                                 className="input rounded-full w-full" placeholder="" />
+                                {/* price */}
                                 <label className="label">Price </label>
                                 <input type="text" name='price'  required
                                 className="input rounded-full w-full" placeholder="price" />
-                                {/* password */}
+                                {/* location*/}
                                 <label className="label">Location </label>
                                 <input type="text" name='location' required
                                 className="input rounded-full w-full" placeholder="location" />
