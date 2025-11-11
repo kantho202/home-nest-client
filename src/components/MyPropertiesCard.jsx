@@ -1,9 +1,11 @@
 import React, { use, useRef } from 'react';
-import { Link } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../context/AuthContext';
 
 const MyPropertiesCard = ({ myProperty, onDelete }) => {
+    const property =useLoaderData()
+    console.log(property)
     const { _id, user_name, property_price, property_name, location, email, category } = myProperty
     const { user } = use(AuthContext)
     const propertiesModalRef = useRef(null)
@@ -36,7 +38,8 @@ const MyPropertiesCard = ({ myProperty, onDelete }) => {
         const price =e.target.price.value;
         const location =e.target.location.value;
         const description=e.target.description.value;
-        // console.log(name,property_name,category,price,email,location,description)
+        console.log(name,property_name,category,price,email,location,description)
+        
         const updateProperties  ={name,property_name,email,category,price,location,description}
         fetch(`http://localhost:3000/myProperties/${_id}`,{
             method:'PATCH',
@@ -47,9 +50,15 @@ const MyPropertiesCard = ({ myProperty, onDelete }) => {
         })
         .then(res=>res.json())
         .then(data=>{
+            // if (data.insertedId){
+            //     propertiesModalRef.current.close()
+            // }
             console.log('after update',data)
-            if(data.modifiedCount)
-                alert('data modified')
+            // if(data.modifiedCount)
+            //     alert('data modified')
+        })
+        .catch(error=>{
+            console.log(error)
         })
 
     }
@@ -116,7 +125,9 @@ const MyPropertiesCard = ({ myProperty, onDelete }) => {
                                                                 {/* properties name */}
                                                                 <label className="label text-primary text-[18px]">Property Name</label>
                                                                 <input type="text" name='propertyName' required
-                                                                    className="input rounded-full w-full" placeholder="Property Name" />
+                                                                    defaultValue={property_name}
+                                                                    className="input rounded-full w-full"
+                                                                     placeholder="Property Name" />
                                                             </div>
                                                         </div>
 
@@ -145,20 +156,23 @@ const MyPropertiesCard = ({ myProperty, onDelete }) => {
                                                             {/* price */}
                                                             <div>
                                                                 <label className="label text-primary text-[18px]">Price </label>
-                                                                <input type="text" name='price' required
+                                                                <input type="number" name='price' required
+                                                                    defaultValue={property_price}
                                                                     className="input rounded-full w-full" placeholder="price" />
                                                             </div>
                                                             {/* location*/}
                                                             <div>
                                                                 <label className="label text-primary text-[18px]">Location </label>
                                                                 <input type="text" name='location' required
+                                                                    defaultValue={location}
                                                                     className="input rounded-full w-full" placeholder="location" />
                                                             </div>
                                                         </div>
 
                                                         {/* categories */}
                                                         <label className="label text-primary text-[18px]">Category</label>
-                                                        <select defaultValue="Pick a color" name='category'
+                                                        <select defaultValue={category} name='category'
+                                                            
                                                             className="input w-full rounded-full select">
                                                             <option disabled={true}>Category</option>
                                                             <option>Rent</option>

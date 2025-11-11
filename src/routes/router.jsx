@@ -10,6 +10,7 @@ import LogIn from "../Pages/Auth/LogIn";
 import Register from "../Pages/Auth/Register";
 import PrivateRoute from "./PrivateRoute";
 import PropertiesDetails from "../components/PropertiesDetails";
+import MyPropertiesCard from "../components/MyPropertiesCard";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
             element:<PrivateRoute>
                 <MyProperties></MyProperties>
             </PrivateRoute>
+        },
+        {
+            path:'/myProperties/:id',
+            loader:({params})=>fetch(`http://localhost:3000/myProperties/${params.id}`),
+            element:<MyPropertiesCard></MyPropertiesCard>
         },
         {
             path:'/myRatings',

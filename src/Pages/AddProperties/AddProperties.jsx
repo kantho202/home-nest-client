@@ -117,7 +117,7 @@ const AddProperties = () => {
                                     </select>
                                     {/* price */}
                                     <label className="label">Price </label>
-                                    <input type="text" name='price' required
+                                    <input type="number" name='price' required
                                         className="input rounded-full w-full" placeholder="price" />
                                     {/* location*/}
                                     <label className="label">Location </label>
