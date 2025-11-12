@@ -49,8 +49,8 @@ const AddProperties = () => {
 
     }
     return (
-        <div className=''>
-            <div className="hero bg-base-200 min-h-screen p-20  mx-auto">
+        <div className='p-20'>
+            <div className="hero bg-base-200 min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row shrink-0 shadow-2xl  rounded-2xl">
                     <div className="text-center w-full lg:text-left">
 

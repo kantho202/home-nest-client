@@ -20,7 +20,7 @@ const AllPropertiesCard = ({property}) => {
                 </div>
                 <div className="card-actions flex items-center justify-end">
                      <p>{location}</p>
-                    <Link to={`/properties-details/${_id}`} className="btn btn-primary">View Details</Link>
+                    <Link to={`/properties-details/${_id}`} className="btn my-btn">View Details</Link>
                 </div>
             </div>
         </div>

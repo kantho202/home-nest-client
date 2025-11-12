@@ -2,11 +2,53 @@ import React, { use } from 'react';
 import { MdOutlineMailOutline } from 'react-icons/md';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
+import { toast } from 'react-toastify';
 
 const Register = () => {
-    const {signInWithGoogle}=use(AuthContext)
+    const {createUser,signInWithGoogle}=use(AuthContext)
     const location =useLocation()
     const navigate =useNavigate()
+    const handleRegister =(e)=>{
+        e.preventDefault()
+        const form =e.target;
+        // const firstName =form.firstName.value;
+        // const lastName =form.lastName.value;
+        // const photo  =form.photo.value;
+        const email=form.email.value;
+        const password  =form.password.value;
+
+
+        const length6Pattern = /^.{6,}$/;
+        const casePattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+        const specialCharacter = /^(?=.*[!@#$%^&*(),.?":{}|<>]).+$/;
+
+        if (!length6Pattern.test(password)) {
+            console.log('password did not match')
+            toast.error('Password must be 6 character longer')
+            return
+        }
+
+        if (!casePattern.test(password)) {
+            toast.error('Password at least one upper case ')
+            return;
+        }
+
+        if (!specialCharacter.test(password)) {
+            toast.error('Password at least one special Character')
+            return;
+        }
+        createUser(email,password)
+        .then(result=>{
+            console.log(result)
+            navigate("/")
+            toast.success('Create Successfully')
+        })
+        .catch(error=>{
+            const errorMessage=error.message;
+            toast.error(errorMessage)
+        })
+
+    }
     const handleGoogleSingIn =()=>{
         signInWithGoogle()
         .then((result)=>{
@@ -47,17 +89,20 @@ const Register = () => {
                     <div className="card-body">
                         <h1 className="text-2xl lg:text-3xl text-center  font-bold">Create an Account!</h1>
                         <p className='text-primary'>Already have an account? <Link to="/auth/logIn" className='text-blue-600 font-bold'>Log in</Link> </p>
-                        <fieldset className="fieldset">
+
+                        <form onSubmit={handleRegister}>
+
+                            <fieldset className="fieldset">
                             {/* name */}
                             <div className='flex '>
-                                <label className="label mr-31">First Name</label>
-                                <label className="label">Last Name</label>
+                                <label className="label mr-31" >First Name</label>
+                                <label className="label" >Last Name</label>
                             </div>
 
                             <div className='flex'>
 
-                                <input type="text" className="input rounded-full w-full mr-3" name='name  ' placeholder="First Name" />
-                                <input type="text" className="input rounded-full w-full" name='name ' placeholder="Last Name" />
+                                <input type="text" className="input rounded-full w-full mr-3" name="firstName" placeholder="First Name" required />
+                                <input type="text" className="input rounded-full w-full" name="lastName" placeholder="Last Name" required />
                             </div>
                             {/* email */}
                            
@@ -79,17 +124,19 @@ const Register = () => {
                                 {/* <MdOutlineMailOutline size={22} className='text-gray-600 absolute top-1/2 left-3 -translate-y-1/2' /> */}
 
                                 <input type="email"
-                                 className="input rounded-full w-full" name='email '
+                                 className="input rounded-full w-full" name='email' required
                                   placeholder="Email Address" />
                             </div>
                             {/* photo */}
                             <label className="label">PhotoURL</label>
-                            <input type="text" className="input rounded-full w-full" name='photo ' placeholder="Photo URL" />
+                            <input type="text" className="input rounded-full w-full" required
+                            name='photo' placeholder="Photo URL" />
                             {/* password */}
                             <label className="label">Password</label>
-                            <input type="password" className="input rounded-full w-full" placeholder="Password" />
+                            <input type="password" required name='password'
+                             className="input rounded-full w-full" placeholder="Password" />
 
-                            <div><a className="link link-hover">Forgot password?</a></div>
+                            
                             <button className="btn btn-primary rounded-full mt-4">Register</button>
                             {/* Google */}
                             <button onClick={handleGoogleSingIn} className="btn bg-white rounded-full mt-4 text-black border-[#e5e5e5]">
@@ -97,6 +144,7 @@ const Register = () => {
                                 Login with Google
                             </button>
                         </fieldset>
+                        </form>
                     </div>
                 </div>
             </div>

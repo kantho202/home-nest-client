@@ -1,13 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import "tailwindcss";
-@plugin "daisyui";
-@plugin "daisyui/theme" {
-  name: "light";
-  default: true;
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
   --color-primary: #152127;
   --color-secondary: teal;
 }
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* @plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #152127;
+  --color-secondary: teal;
+} */
+
+[data-theme="light"] {
+  .my-btn {
+    background-color: #152127;
+    color:white;
+    border-color: #1EA1F1;
+  }
+  .my-btn:hover {
+    background-color: #1C96E1;
+    border-color: #1C96E1;
+  }
+}
 *{
 /* font-family:  LandRoverWeb-Bold,Arial,Helvetica,sans-serif; */
     font-family: "Open Sans", sans-serif;
