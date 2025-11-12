@@ -1,11 +1,10 @@
 import React, { use, useRef } from 'react';
-import { Link, useLoaderData } from 'react-router';
+import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../context/AuthContext';
 
-const MyPropertiesCard = ({ myProperty, onDelete }) => {
-    const property =useLoaderData()
-    console.log(property)
+const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
+
     const { _id, user_name, property_price, property_name, location, email, category } = myProperty
     const { user } = use(AuthContext)
     const propertiesModalRef = useRef(null)
@@ -31,35 +30,39 @@ const MyPropertiesCard = ({ myProperty, onDelete }) => {
     }
     const handleUpdateProperties = (e) => {
         e.preventDefault()
-        const name =e.target.name.value;
-        const property_name=e.target.propertyName.value;
-        const email =e.target.email.value;
-        const category =e.target.category.value;
-        const price =e.target.price.value;
-        const location =e.target.location.value;
-        const description=e.target.description.value;
-        console.log(name,property_name,category,price,email,location,description)
-        
-        const updateProperties  ={name,property_name,email,category,price,location,description}
-        fetch(`http://localhost:3000/myProperties/${_id}`,{
-            method:'PATCH',
-            headers:{
-                'content-type':'application/json'
+        const name = e.target.name.value;
+        const property_name = e.target.propertyName.value;
+        const email = e.target.email.value;
+        const category = e.target.category.value;
+        const property_price = e.target.price.value;
+        const location = e.target.location.value;
+        const description = e.target.description.value;
+        console.log(name, property_name, category, property_price, email, location, description)
+
+        const updateProperties = { _id, name, property_name, email, category, property_price, location, description }
+        fetch(`http://localhost:3000/myProperties/${_id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
             },
-            body:JSON.stringify(updateProperties)
+            body: JSON.stringify(updateProperties)
         })
-        .then(res=>res.json())
-        .then(data=>{
-            // if (data.insertedId){
-            //     propertiesModalRef.current.close()
-            // }
-            console.log('after update',data)
-            // if(data.modifiedCount)
-            //     alert('data modified')
-        })
-        .catch(error=>{
-            console.log(error)
-        })
+            .then(res => res.json())
+            .then(data => {
+                // if (data.insertedId){
+                //     propertiesModalRef.current.close()
+                // }
+                console.log('after update', data)
+                if (data.modifiedCount) {
+                    onUpdate(updateProperties)
+                    Swal.fire("Updated!", "Your property has been updated.", "success");
+                    propertiesModalRef.current.close();
+                }
+
+            })
+            .catch(error => {
+                console.log(error)
+            })
 
     }
     return (
@@ -80,7 +83,7 @@ const MyPropertiesCard = ({ myProperty, onDelete }) => {
                 </div>
                 <div className="card-actions flex items-center justify-end">
 
-                    <Link to={`/properties-details/${_id}`} className="btn btn-primary">View Details</Link>
+                    <Link to={`/myProperties/${_id}`} className="btn btn-primary">View Details</Link>
                     <button onClick={handlePropertiesShowModal} className="btn btn-primary">Update</button>
                     <button onClick={() => handlePropertiesRemove(myProperty._id)} className="btn btn-primary">Delete</button>
 
@@ -127,7 +130,7 @@ const MyPropertiesCard = ({ myProperty, onDelete }) => {
                                                                 <input type="text" name='propertyName' required
                                                                     defaultValue={property_name}
                                                                     className="input rounded-full w-full"
-                                                                     placeholder="Property Name" />
+                                                                    placeholder="Property Name" />
                                                             </div>
                                                         </div>
 
@@ -172,7 +175,7 @@ const MyPropertiesCard = ({ myProperty, onDelete }) => {
                                                         {/* categories */}
                                                         <label className="label text-primary text-[18px]">Category</label>
                                                         <select defaultValue={category} name='category'
-                                                            
+
                                                             className="input w-full rounded-full select">
                                                             <option disabled={true}>Category</option>
                                                             <option>Rent</option>
@@ -184,10 +187,10 @@ const MyPropertiesCard = ({ myProperty, onDelete }) => {
 
                                                         <fieldset className="fieldset">
                                                             <legend className="fieldset-legend">Description</legend>
-                                                            <textarea className="textarea h-40 w-full rounded-[5px]" 
-                                                            name='description'
-                                                            placeholder="Description"></textarea>
-                                                            
+                                                            <textarea className="textarea h-40 w-full rounded-[5px]"
+                                                                name='description'
+                                                                placeholder="Description"></textarea>
+
                                                         </fieldset>
 
 

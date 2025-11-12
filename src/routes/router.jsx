@@ -11,6 +11,9 @@ import Register from "../Pages/Auth/Register";
 import PrivateRoute from "./PrivateRoute";
 import PropertiesDetails from "../components/PropertiesDetails";
 import MyPropertiesCard from "../components/MyPropertiesCard";
+import NotFound from "../Pages/NotFound/NotFound";
+import MyPropertiesDetails from "../components/MyPropertiesDetails";
+
 
 const router = createBrowserRouter([
   {
@@ -46,7 +49,8 @@ const router = createBrowserRouter([
         {
             path:'/myProperties/:id',
             loader:({params})=>fetch(`http://localhost:3000/myProperties/${params.id}`),
-            element:<MyPropertiesCard></MyPropertiesCard>
+            element:<MyPropertiesDetails></MyPropertiesDetails>,
+            hydrateFallbackElement:<p>Loading</p>
         },
         {
             path:'/myRatings',
@@ -62,7 +66,10 @@ const router = createBrowserRouter([
             path:'/auth/register',
             element:<Register></Register>
         },
-       
+        {
+            path:"*",
+            element:<NotFound></NotFound>
+        }        
 
     ]
   },
