@@ -25,7 +25,7 @@ const Register = () => {
         if (!length6Pattern.test(password)) {
             console.log('password did not match')
             toast.error('Password must be 6 character longer')
-            return
+            return;
         }
 
         if (!casePattern.test(password)) {
