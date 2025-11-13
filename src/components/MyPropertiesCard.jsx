@@ -5,7 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 
 const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
 
-    const { _id, user_name, property_price, property_name, location, email, category } = myProperty
+    const { _id, user_name, property_price, property_name, location, email,image, category } = myProperty
     const { user } = use(AuthContext)
     const propertiesModalRef = useRef(null)
     const handlePropertiesRemove = (_id) => {
@@ -37,9 +37,10 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
         const property_price = e.target.price.value;
         const location = e.target.location.value;
         const description = e.target.description.value;
-        console.log(name, property_name, category, property_price, email, location, description)
+        const image  =e.target.image.value;
+        console.log(name, property_name, category, image,property_price, email, location, description)
 
-        const updateProperties = { _id, name, property_name, email, category, property_price, location, description }
+        const updateProperties = { _id, name, property_name, email, category, property_price, location, description ,image}
         fetch(`http://localhost:3000/myProperties/${_id}`, {
             method: 'PATCH',
             headers: {
@@ -66,10 +67,10 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
 
     }
     return (
-        <div className="card bg-base-100 image-full w-96 shadow-sm">
+        <div className="card bg-base-100 image-full  shadow-sm">
             <figure>
                 <img
-                    src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                    src={image}
                     alt="Shoes" />
             </figure>
             <div className="card-body">
@@ -83,9 +84,9 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
                 </div>
                 <div className="card-actions flex items-center justify-end">
 
-                    <Link to={`/myProperties/${_id}`} className="btn btn-primary">View Details</Link>
-                    <button onClick={handlePropertiesShowModal} className="btn btn-primary">Update</button>
-                    <button onClick={() => handlePropertiesRemove(myProperty._id)} className="btn btn-primary">Delete</button>
+                    <Link to={`/myProperties/${_id}`} className="btn my-btn border-0">View Details</Link>
+                    <button onClick={handlePropertiesShowModal} className="btn my-btn border-0">Update</button>
+                    <button onClick={() => handlePropertiesRemove(myProperty._id)} className="btn my-btn border-0">Delete</button>
 
 
 
@@ -96,14 +97,15 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
 
                             {/* <h3 className="font-bold text-lg">Hello!</h3>
                             <p className="py-4">Press ESC key or click the button below to close</p> */}
-                            <div className='w-full text-primary'>
-                                <div className=" bg-base-200 mx-auto">
+                            <div className='w-full '>
+                                <div className=" mx-auto">
                                     <div className="hero-content flex-col lg:flex-row shrink-0   rounded-2xl">
 
-                                        <div className=" bg-base-100 w-full  ">
-                                            <div className="card-body">
-                                                <h1 className="text-2xl lg:text-3xl text-center text-primary  font-bold">Update Properties!</h1>
-                                                <p className='text-primary font-medium text-center text-base py-3'>Add your property easily and reach real buyers. Start your journey with Home Nest today.</p>
+                                        <div className=" w-full  ">
+                                            <div className="card-body ">
+                                                <h1 className="text-2xl lg:text-3xl text-center light:text-red-500   font-bold">Update Properties!</h1>
+                                                <p className=' font-medium text-center text-base py-3'>Add your property easily and reach real buyers. Start your journey with Home Nest today.</p>
+                                                {/* update form */}
                                                 <form onSubmit={handleUpdateProperties} >
                                                     <fieldset className="fieldset">
 
@@ -115,7 +117,7 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
 
                                                         <div className='grid grid-cols-2 gap-7'>
                                                             <div className='  '>
-                                                                <label className="label text-primary text-[18px]">User Name</label>
+                                                                <label className="label  text-[18px]">User Name</label>
                                                                 <input type="text" name='name'
                                                                     className="input rounded-full w-full  "
                                                                     readOnly
@@ -126,7 +128,7 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
                                                             <div className=''>
 
                                                                 {/* properties name */}
-                                                                <label className="label text-primary text-[18px]">Property Name</label>
+                                                                <label className="label  text-[18px]">Property Name</label>
                                                                 <input type="text" name='propertyName' required
                                                                     defaultValue={property_name}
                                                                     className="input rounded-full w-full"
@@ -137,7 +139,7 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
 
 
                                                         {/* email */}
-                                                        <label className="label text-primary text-[18px]">Email Address</label>
+                                                        <label className="label  text-[18px]">Email Address</label>
                                                         <div className='flex items-center relative '>
                                                             <input type="email"
                                                                 readOnly
@@ -145,6 +147,13 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
                                                                 className="input rounded-full w-full read-only " name='email'
                                                                 placeholder={user?.email} />
                                                         </div>
+                                                        {/* Image Link */}
+                                                        <label className="label  text-[18px]">Image Link</label>
+                                                        
+                                                            <input type="text" required
+                                                                className="input rounded-full w-full read-only " name='image'
+                                                                placeholder="Image URL" />
+                                                        
 
 
 
@@ -158,14 +167,14 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
                                                         <div className='grid grid-cols-2 gap-7'>
                                                             {/* price */}
                                                             <div>
-                                                                <label className="label text-primary text-[18px]">Price </label>
+                                                                <label className="label  text-[18px]">Price </label>
                                                                 <input type="number" name='price' required
                                                                     defaultValue={property_price}
                                                                     className="input rounded-full w-full" placeholder="price" />
                                                             </div>
                                                             {/* location*/}
                                                             <div>
-                                                                <label className="label text-primary text-[18px]">Location </label>
+                                                                <label className="label  text-[18px]">Location </label>
                                                                 <input type="text" name='location' required
                                                                     defaultValue={location}
                                                                     className="input rounded-full w-full" placeholder="location" />
@@ -173,8 +182,8 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
                                                         </div>
 
                                                         {/* categories */}
-                                                        <label className="label text-primary text-[18px]">Category</label>
-                                                        <select defaultValue={category} name='category'
+                                                        <label className="label  text-[18px]">Category</label>
+                                                        <select defaultValue={category} name='category' required
 
                                                             className="input w-full rounded-full select">
                                                             <option disabled={true}>Category</option>
@@ -188,7 +197,7 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
                                                         <fieldset className="fieldset">
                                                             <legend className="fieldset-legend">Description</legend>
                                                             <textarea className="textarea h-40 w-full rounded-[5px]"
-                                                                name='description'
+                                                                name='description' required
                                                                 placeholder="Description"></textarea>
 
                                                         </fieldset>
@@ -196,7 +205,7 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
 
 
 
-                                                        <button className="btn btn-primary rounded-full mt-4">Add Property</button>
+                                                        <button className="btn my-btn rounded-full mt-4">Add Property</button>
 
                                                     </fieldset>
                                                 </form>
@@ -207,8 +216,8 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
                                 </div>
                                 {/* add properties */}
                                 {/* <div className='mx-20 py-5'>
-                <h1 className='text-3xl font-medium'>All Add Properties Details</h1>
-            </div> */}
+                               <h1 className='text-3xl font-medium'>All Add Properties Details</h1>
+                                  </div> */}
                             </div>
 
 
@@ -216,7 +225,7 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
                             <div className="modal-action">
                                 <form method="dialog">
                                     {/* if there is a button in form, it will close the modal */}
-                                    <button className="btn">Close</button>
+                                    <button className="btn my-btn">Close</button>
                                 </form>
                             </div>
                         </div>

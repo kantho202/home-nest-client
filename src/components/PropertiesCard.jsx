@@ -4,7 +4,9 @@ import { Link } from 'react-router';
 const PropertiesCard = ({ property }) => {
     const {_id, property_name, category,property_image , description, location, property_price } = property
     return (
-        <div className="card bg-base-100 image-full w-96 shadow-sm">
+        <div data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="1000" className="card bg-base-100 image-full  shadow-sm">
             <figure>
                 <img
                     src={property_image}

@@ -7,24 +7,24 @@ import Loading from '../../components/Loading';
 const AllProperties = () => {
   const data = useLoaderData()
   // console.log(data)
-  const {loading,setLoading}=use(AuthContext)
-  const [properties,setProperties]=useState(data)
-  const handleSearch =(e)=>{
+  const { loading, setLoading } = use(AuthContext)
+  const [properties, setProperties] = useState(data)
+  const handleSearch = (e) => {
     e.preventDefault()
-    const search_text =e.target.search.value;
+    const search_text = e.target.search.value;
     console.log(search_text)
     setLoading(true)
     fetch(`http://localhost:3000/search?search=${search_text}`)
-    .then(res=>res.json())
-    .then(data =>{
-      console.log('search ',data)
-      setProperties(data)
-      setLoading(false)
-    })
+      .then(res => res.json())
+      .then(data => {
+        console.log('search ', data)
+        setProperties(data)
+        setLoading(false)
+      })
   }
   return (
 
-    <div>
+    <div className='px-8'>
       <div className='text-center py-10'>
 
 
@@ -42,22 +42,22 @@ const AllProperties = () => {
                 <path d="m21 21-4.3-4.3"></path>
               </g>
             </svg>
-            <input type="search" name='search' className=''  placeholder="Search" />
+            <input type="search" name='search' className='' placeholder="Search" />
           </label>
-        <button className="btn my-btn join-item rounded-r-full">Search</button>
+          <button className="btn my-btn join-item rounded-r-full">Search</button>
         </form>
 
 
       </div>
-     {
-      loading ? <Loading></Loading>  :
-       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 py-15 max-w-7xl mx-auto'>
-        { 
-          
-          properties.map(property => <AllPropertiesCard key={property._id} property={property}></AllPropertiesCard>)
-        }
-      </div>
-     }
+      {
+        loading ? <Loading></Loading> :
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 py-20 '>
+            {
+
+              properties.map(property => <AllPropertiesCard key={property._id} property={property}></AllPropertiesCard>)
+            }
+          </div>
+      }
     </div>
   );
 };

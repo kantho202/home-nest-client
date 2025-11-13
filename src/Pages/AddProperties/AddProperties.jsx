@@ -11,9 +11,10 @@ const AddProperties = () => {
         const propertiesName = e.target.propertyName.value;
         const description = e.target.description.value;
         const category = e.target.category.value;
+        const image =e.target.image.value;
         const price = e.target.price.value;
         const location = e.target.location.value;
-        console.log(propertiesName, description, price, location, userName, email)
+        console.log(propertiesName, description, price,image, location, userName, email)
 
         const newProperties = {
             user_name: userName,
@@ -23,7 +24,8 @@ const AddProperties = () => {
             description: description,
             category: category,
             property_price: price,
-            location: location
+            location: location,
+            image:image,
         }
 
         fetch('http://localhost:3000/addProperties', {
@@ -39,7 +41,7 @@ const AddProperties = () => {
                     Swal.fire({
                         position: "top-center",
                         icon: "success",
-                        title: "Properties has been saved",
+                        title: "Properties has been added to my properties",
                         showConfirmButton: false,
                         timer: 1500
                     });
@@ -60,7 +62,7 @@ const AddProperties = () => {
                     <div className="card bg-base-100 w-full  ">
                         <div className="card-body">
                             <h1 className="text-2xl lg:text-3xl text-center  font-bold">Add Properties!</h1>
-                            <p className='text-primary font-medium text-center '>Add your property easily and reach real buyers. Start your journey with Home Nest today.</p>
+                            <p className=' font-medium text-center '>Add your property easily and reach real buyers. Start your journey with Home Nest today.</p>
                             <form onSubmit={handleAddProperties} >
                                 <fieldset className="fieldset">
 
@@ -101,6 +103,10 @@ const AddProperties = () => {
                                     <label className="label">Property Name</label>
                                     <input type="text" name='propertyName' required
                                         className="input rounded-full w-full" placeholder="Property Name" />
+                                    {/* image */}
+                                    <label className="label">Image Link</label>
+                                    <input type="text" name='image' required
+                                        className="input rounded-full w-full" placeholder="Image URL" />
                                     {/* description */}
                                     <label className="label">Description</label>
                                     <input type="text" name='description' required
@@ -125,7 +131,7 @@ const AddProperties = () => {
                                         className="input rounded-full w-full" placeholder="location" />
 
 
-                                    <button className="btn btn-primary rounded-full mt-4">Add Property</button>
+                                    <button className="btn my-btn rounded-full mt-4">Add Property</button>
 
                                 </fieldset>
                             </form>
