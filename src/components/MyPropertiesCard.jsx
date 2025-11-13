@@ -71,19 +71,19 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
             <figure>
                 <img
                     src={image}
-                    alt="Shoes" />
+                    alt="" />
             </figure>
             <div className="card-body">
-                <h2 className="card-title">{property_name}</h2>
-                <h2 className="card-title">{user_name}</h2>
+                <h2 className="card-title font-bold">{property_name}</h2>
+                <h2 className="font-semibold">{user_name}</h2>
                 <p>{email}</p>
-                <div className='flex justify-between'>
-                    <p>Category:{category}</p>
-                    <p>{location}</p>
-                    <p>Price:{property_price}</p>
+                <div className='flex justify-end'>
+                    <p className='font-semibold '>Price : {property_price}</p>
+                    <p className='font-semibold text-end'>Category : {category}</p>
+
                 </div>
                 <div className="card-actions flex items-center justify-end">
-
+                     <p className='font-semibold'>{location}</p>
                     <Link to={`/myProperties/${_id}`} className="btn my-btn border-0">View Details</Link>
                     <button onClick={handlePropertiesShowModal} className="btn my-btn border-0">Update</button>
                     <button onClick={() => handlePropertiesRemove(myProperty._id)} className="btn my-btn border-0">Delete</button>
@@ -150,7 +150,8 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
                                                         {/* Image Link */}
                                                         <label className="label  text-[18px]">Image Link</label>
                                                         
-                                                            <input type="text" required
+                                                            <input type="text" required 
+                                                            // defaultValue={user?.photoUrl}
                                                                 className="input rounded-full w-full read-only " name='image'
                                                                 placeholder="Image URL" />
                                                         

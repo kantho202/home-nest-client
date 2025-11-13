@@ -25,9 +25,9 @@ const AllProperties = () => {
   return (
 
     <div className='px-8'>
-      <div className='text-center py-10'>
+      <div className='text-center pt-10'>
 
-
+        <h1 className='text-4xl pb-5'>All Properties</h1>
         <form onSubmit={handleSearch}>
           <label className="input join-item rounded-l-full border-2 outline-none">
             <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -51,7 +51,7 @@ const AllProperties = () => {
       </div>
       {
         loading ? <Loading></Loading> :
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 py-20 '>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 py-10 '>
             {
 
               properties.map(property => <AllPropertiesCard key={property._id} property={property}></AllPropertiesCard>)

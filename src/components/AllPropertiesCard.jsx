@@ -13,13 +13,13 @@ const AllPropertiesCard = ({property}) => {
             <div className="card-body">
                 <h2 className="card-title">{property_name}</h2>
                 <p>{description.slice(0,138)}...</p>
-                <div className='flex justify-between'>
-                    <p>Category:{category}</p>
-               
-                <p>Price:{property_price}</p>
+                <div className='flex justify-end'>
+                    <p className='font-semibold '>Price : {property_price}</p>
+                    <p className='font-semibold text-end'>Category : {category}</p>
+
                 </div>
                 <div className="card-actions flex items-center justify-end">
-                     <p>{location}</p>
+                     <p className='font-semibold '>{location}</p>
                     <Link to={`/properties-details/${_id}`} className="btn my-btn">View Details</Link>
                 </div>
             </div>

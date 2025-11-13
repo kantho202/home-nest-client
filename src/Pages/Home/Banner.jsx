@@ -6,11 +6,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css';
 
-import firstSlide from '../../assets/Black And Grey Real Estate Instagram Post.png'
-import secondSlide from '../../assets/Black And Grey Real Estate Instagram Post.png'
-import thirdSlide from '../../assets/Black And Grey Real Estate Instagram Post.png'
-import fourSlide from '../../assets/Black And Grey Real Estate Instagram Post.png'
-import fiveSlide from '../../assets/Black And Grey Real Estate Instagram Post.png'
+import firstSlide from '../../assets/1.avif'
+import secondSlide from '../../assets/2.avif'
+import thirdSlide from '../../assets/3.avif'
+import fourSlide from '../../assets/5.avif'
 
 const Banner = () => {
   return (
@@ -34,9 +33,7 @@ const Banner = () => {
       <SwiperSlide>
         <img src={fourSlide} alt="" style={{width:"100%" ,height:"500px" }} />
       </SwiperSlide>
-      <SwiperSlide>
-        <img src={fiveSlide} alt="" style={{width:"100%" ,height:"500px" }} />
-      </SwiperSlide>
+     
 
 
     </Swiper>

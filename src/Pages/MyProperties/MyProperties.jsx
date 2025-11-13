@@ -35,7 +35,7 @@ const MyProperties = () => {
     }
     return (
         <div className='px-8'>
-            Total properties :  <span>{properties.length}</span>
+            {/* Total properties :  <span>{properties.length}</span> */}
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 py-20 '>
                 {
                     properties.map(myProperty => <MyPropertiesCard key={myProperty._id}

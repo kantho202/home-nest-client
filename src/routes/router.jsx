@@ -27,7 +27,9 @@ const router = createBrowserRouter([
         {
             path:'/properties-details/:id',
             loader:({params})=>fetch(`http://localhost:3000/properties/${params.id}`),
-            element:<PropertiesDetails></PropertiesDetails>
+            element:<PrivateRoute>
+                <PropertiesDetails></PropertiesDetails>
+            </PrivateRoute>
         },    
         {
             path:'/allProperties',
@@ -49,7 +51,9 @@ const router = createBrowserRouter([
         {
             path:'/myProperties/:id',
             loader:({params})=>fetch(`http://localhost:3000/myProperties/${params.id}`),
-            element:<MyPropertiesDetails></MyPropertiesDetails>,
+            element:<PrivateRoute>
+                <MyPropertiesDetails></MyPropertiesDetails>
+            </PrivateRoute>,
             hydrateFallbackElement:<p>Loading</p>
         },
         {
