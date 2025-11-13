@@ -14,7 +14,7 @@ const AllProperties = () => {
     const search_text = e.target.search.value;
     console.log(search_text)
     setLoading(true)
-    fetch(`http://localhost:3000/search?search=${search_text}`)
+    fetch(`https://home-nest-cyan.vercel.app//search?search=${search_text}`)
       .then(res => res.json())
       .then(data => {
         console.log('search ', data)

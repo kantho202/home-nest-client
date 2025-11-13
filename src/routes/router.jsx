@@ -26,14 +26,14 @@ const router = createBrowserRouter([
         },
         {
             path:'/properties-details/:id',
-            loader:({params})=>fetch(`http://localhost:3000/properties/${params.id}`),
+            loader:({params})=>fetch(`https://home-nest-cyan.vercel.app//properties/${params.id}`),
             element:<PrivateRoute>
                 <PropertiesDetails></PropertiesDetails>
             </PrivateRoute>
         },    
         {
             path:'/allProperties',
-            loader:()=>fetch('http://localhost:3000/properties'),
+            loader:()=>fetch('https://home-nest-cyan.vercel.app//properties'),
             element:<AllProperties></AllProperties>
         },
         {
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
         },
         {
             path:'/myProperties/:id',
-            loader:({params})=>fetch(`http://localhost:3000/myProperties/${params.id}`),
+            loader:({params})=>fetch(`https://home-nest-cyan.vercel.app//myProperties/${params.id}`),
             element:<PrivateRoute>
                 <MyPropertiesDetails></MyPropertiesDetails>
             </PrivateRoute>,

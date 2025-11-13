@@ -59,7 +59,7 @@ const Register = () => {
                 image:result.user.photoURL,
                 // categories:result.user.category
             }
-            fetch('http://localhost:3000/addProperties',{
+            fetch('https://home-nest-cyan.vercel.app//addProperties',{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'

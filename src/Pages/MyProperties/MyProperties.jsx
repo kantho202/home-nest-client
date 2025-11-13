@@ -7,7 +7,7 @@ const MyProperties = () => {
     const [properties, setProperties] = useState([])
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/myProperties/?email=${user?.email}`)
+            fetch(`https://home-nest-cyan.vercel.app//myProperties/?email=${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
@@ -18,7 +18,7 @@ const MyProperties = () => {
     }, [user?.email])
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:3000/myProperties/${id}`, {
+        fetch(`https://home-nest-cyan.vercel.app//myProperties/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

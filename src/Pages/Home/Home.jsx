@@ -5,7 +5,7 @@ import WhyChooseUs from './WhyChoseUs';
 import OurAgent from './OurAgent';
 import Contact from './Contact';
 
-const latestPropertiesPromise =fetch('http://localhost:3000/latest-properties').then(res=>res.json())
+const latestPropertiesPromise =fetch('https://home-nest-cyan.vercel.app//latest-properties').then(res=>res.json())
 
 const Home = () => {
     return (
