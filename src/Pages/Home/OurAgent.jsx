@@ -1,7 +1,7 @@
 import React from "react";
 import { Mail, Phone } from "lucide-react";
 
-const OurAgents = () => {
+const OurAgent = () => {
   const agents = [
     {
       name: "Tanvir Rahman",
@@ -75,4 +75,4 @@ const OurAgents = () => {
   );
 };
 
-export default OurAgents;
+export default OurAgent;

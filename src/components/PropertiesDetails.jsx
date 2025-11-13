@@ -6,7 +6,7 @@ const PropertiesDetails = () => {
     const properties = useLoaderData()
     console.log(properties)
     return (
-        <div className='min-w-screen  bg-base-200 px-10 py-20'>
+        <div className='min-w-screen   px-10 py-20'>
 
             <div className="flex w-full flex-col lg:flex-row">
                 <div className=" grid  grow place-items">

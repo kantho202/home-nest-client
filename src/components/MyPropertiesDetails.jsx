@@ -1,26 +1,39 @@
 import React from 'react';
+import { LuArrowRight } from 'react-icons/lu';
 import { useLoaderData } from 'react-router';
 
 const MyPropertiesDetails = () => {
-    const data =useLoaderData()
-    console.log(data)
+    const properties = useLoaderData()
+    console.log(properties)
     return (
-        <div>
-            this details pages
-            {/* <p>Alicia Sciberras Creates Her Dream Designer Looks</p> */}
-            <div>
-                <div className="left">
-                    <img src="" alt="" />
+        <div className='min-w-screen px-10 py-20'>
+
+            <div className="flex w-full flex-col lg:flex-row">
+                <div className=" grid  grow place-items">
+                    <img className='' src={properties.user_image} alt="" />
+                    <h1 className='font-bold text-2xl '>Properties Name :{properties.property_name} </h1>
+
                 </div>
-                <div className="right">
-                    <h2>User Name :{data.name}</h2>
-                    <h2>Property Name :{data.property_name}</h2>
-                    <h2>Email :{data.email}</h2>
-                    <h2>Location :{data.location}</h2>
-                    <h2>Description :{data.description}</h2>
-                    <h2>Category :{data.category}</h2>
-                    <h2>Price :{data.price}</h2>
-                    <h2>{data.price}</h2>
+                <div className="divider lg:divider-horizontal"><LuArrowRight size={60} /></div>
+                <div className=" grid   ">
+                    <p className='pt-5 '><span className=' font-semibold text-[20px] '>Description </span>
+                        : <span className='font-medium text-[15px]'></span>{properties.description} </p>
+                    <p className=' pt-5'>
+                        <span className='font-semibold text-[18px]'>Posted Name</span>
+                        :<span className='font-medium text-[15px]'>{properties.property_name}</span> </p>
+                    <p className=' py-3'>
+                        <span className='font-semibold text-[18px]'>Posted Email</span>
+                        :<span className='font-medium text-[15px]'>{properties.email}</span> </p>
+                    <p className=' py-3'>
+                        <span className='font-semibold text-[18px]'>Price</span>
+                        :<span className='font-medium text-[15px]'>{properties.price} </span>  </p>
+                    <p className=' py-3'>
+                        <span className='font-semibold text-[18px]'>Category</span>
+                        :<span className='font-medium text-[15px]'> {properties.category}</span>  </p>
+                            {/* <p className=' py-3'>
+                        <span className='font-semibold text-[18px]'>Posted Date</span>
+                        :<span className='font-medium text-[15px]'> {new Date()}</span>  </p> */}
+
                 </div>
             </div>
         </div>

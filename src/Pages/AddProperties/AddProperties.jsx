@@ -52,7 +52,7 @@ const AddProperties = () => {
     }
     return (
         <div className='p-20'>
-            <div className="hero bg-base-200 min-h-screen ">
+            <div className="hero  min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row shrink-0 shadow-2xl  rounded-2xl">
                     <div className="text-center w-full lg:text-left">
 
