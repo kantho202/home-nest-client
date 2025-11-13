@@ -20,11 +20,23 @@
   .my-btn {
     background-color: #152127;
     color:white;
-    border-color: #1EA1F1;
+    /* border-color: #1EA1F1; */
   }
   .my-btn:hover {
-    background-color: #1C96E1;
-    border-color: #1C96E1;
+    /* background-color: #1C96E1;
+    border-color: #1C96E1; */
+  }
+}
+[data-theme="dark"] {
+  .my-btn {
+    background-color: gray;
+    color:white;
+    
+    /* border-color: #1EA1F1; */
+  }
+  .my-btn:hover {
+    /* background-color: #1C96E1;
+    border-color: #1C96E1; */
   }
 }
 *{
@@ -39,5 +51,5 @@
     /* text-white */
 }
  a.active{
-   @apply underline decoration-2 decoration-primary underline-offset-6;
+   @apply underline decoration-2  underline-offset-6;
 }

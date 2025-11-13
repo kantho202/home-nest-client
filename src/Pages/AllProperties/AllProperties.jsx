@@ -44,7 +44,7 @@ const AllProperties = () => {
             </svg>
             <input type="search" name='search' className=''  placeholder="Search" />
           </label>
-        <button className="btn btn-primary join-item rounded-r-full">Search</button>
+        <button className="btn my-btn join-item rounded-r-full">Search</button>
         </form>
 
 

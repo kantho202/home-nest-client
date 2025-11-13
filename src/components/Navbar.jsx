@@ -5,11 +5,11 @@ import { AuthContext } from '../context/AuthContext';
 
 const Navbar = () => {
     const links = <>
-        <NavLink to="/" className="mr-3 mb-3 lg:mb-3 text-[15px] text-[#0c121c] font-regular"><li>Home</li></NavLink>
-        <NavLink to="/allProperties" className="mr-3 mb-3 lg:mb-3 text-[15px] text-[#0c121c] font-regular"><li>All Properties</li></NavLink>
-        <NavLink to="/addProperties" className="mr-3 mb-3 lg:mb-3 text-[15px] text-[#0c121c] font-regular"><li>Add Properties</li></NavLink>
-        <NavLink to="/myProperties" className="mr-3 mb-3 lg:mb-3 text-[15px] text-[#0c121c] font-regular"><li>My Properties</li></NavLink>
-        <NavLink to="/myRatings" className="mr-3 mb-3 lg:mb-3 text-[15px] text-[#0c121c] font-regular"><li>My Ratings</li></NavLink>
+        <NavLink to="/" className="mr-3 mb-3 lg:mb-3 text-[15px]  font-regular"><li>Home</li></NavLink>
+        <NavLink to="/allProperties" className="mr-3 mb-3 lg:mb-3 text-[15px]  font-regular"><li>All Properties</li></NavLink>
+        <NavLink to="/addProperties" className="mr-3 mb-3 lg:mb-3 text-[15px]  font-regular"><li>Add Properties</li></NavLink>
+        <NavLink to="/myProperties" className="mr-3 mb-3 lg:mb-3 text-[15px]  font-regular"><li>My Properties</li></NavLink>
+        <NavLink to="/myRatings" className="mr-3 mb-3 lg:mb-3 text-[15px]  font-regular"><li>My Ratings</li></NavLink>
     </>
 
     const { user, signOutUser } = use(AuthContext)
@@ -43,9 +43,9 @@ localStorage.setItem('theme',theme)
 
 
 
-        <div className="navbar   pl-4 shadow-sm ">
+        <div className="navbar flex justify-between items-center   shadow-sm  ">
 
-            <div className="navbar-start ">
+            <div className="flex items-center justify-between ">
 
 
 
@@ -64,14 +64,14 @@ localStorage.setItem('theme',theme)
                         <ul className="menu bg-base-200 min-h-full text-center w-80 p-4">
 
                             {links}
-                            <Link to="/auth/logIn" className="btn btn-sm mr-4 mb-3 btn-outline w-full btn-primary">LogIn</Link>
-                            <Link to="/auth/register" className="btn btn-sm w-full btn-primary ">Register</Link>
+                            <Link to="/auth/logIn" className="btn btn-sm mr-4 mb-3 btn-outline w-full ">LogIn</Link>
+                            <Link to="/auth/register" className="btn btn-sm w-full my-btn ">Register</Link>
                         </ul>
                     </div>
                 </div>
 
 
-                <div className="dropdown">
+                <div className="">
                     {/* <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
                     </div>
@@ -91,11 +91,48 @@ localStorage.setItem('theme',theme)
 
             </div>
 
-            <div className="navbar-end hidden lg:flex items-center pr-4">
+            <div className="  flex items-center pr-">
                 <ul className="menu menu-horizontal px-1 hidden lg:flex justify-between  items-center">
 
-                    {/* theme */}
-                    <label className="swap swap-rotate text-gray-600 mr-4">
+                  
+
+                    {links}
+                </ul>
+                {
+                    user ?
+                        <div className="flex gap-2 mr-4">
+
+                            <div className="dropdown dropdown-end">
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img
+                                            alt="Tailwind CSS Navbar component"
+                                            src={user?.photoURL} />
+                                    </div>
+                                </div>
+                                <ul
+                                    tabIndex="-1"
+                                    className="menu menu-md dropdown-content bg-base-100 rounded-box z-2 mt-3 w-70 p-2 shadow">
+                                    <li className=''>
+                                        <a className="justify-between mb-3 ">
+                                            {user?.displayName}
+                                            <span className="badge">New</span>
+                                        </a>
+                                    </li>
+                                    <li><a className='mb-3 p-2'>{user?.email}</a></li>
+                                    <button onClick={handleLogOut} className='btn btn-sm btn-outline my-btn '>LogOut</button>
+
+                                </ul>
+                            </div>
+                        </div>
+                        :
+                        <>
+                            <Link to="/auth/logIn" className="btn btn-sm mr-4 btn-outline my-btn">LogIn</Link>
+                            <Link to="/auth/register" className="btn btn-sm my-btn mr-4">Register</Link>
+                        </>
+                }
+                  {/* theme */}
+                    <label className="swap swap-rotate text-gray-600 ">
                         {/* this hidden checkbox controls the state */}
                         <input type="checkbox" onChange={(e) => handleTheme(e.target.checked)} className="theme-controller" value="synthwave" />
 
@@ -118,42 +155,6 @@ localStorage.setItem('theme',theme)
                         </svg>
                     </label>
 
-
-                    {links}
-                </ul>
-                {
-                    user ?
-                        <div className="flex gap-2">
-
-                            <div className="dropdown dropdown-end">
-                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                    <div className="w-10 rounded-full">
-                                        <img
-                                            alt="Tailwind CSS Navbar component"
-                                            src={user?.photoURL} />
-                                    </div>
-                                </div>
-                                <ul
-                                    tabIndex="-1"
-                                    className="menu menu-md dropdown-content bg-base-100 rounded-box z-2 mt-3 w-70 p-2 shadow">
-                                    <li className=''>
-                                        <a className="justify-between mb-3 ">
-                                            {user?.displayName}
-                                            <span className="badge">New</span>
-                                        </a>
-                                    </li>
-                                    <li><a className='mb-3 p-2'>{user?.email}</a></li>
-                                    <button onClick={handleLogOut} className='btn btn-sm btn-outline btn-primary '>LogOut</button>
-
-                                </ul>
-                            </div>
-                        </div>
-                        :
-                        <>
-                            <Link to="/auth/logIn" className="btn btn-sm mr-4 btn-outline btn-primary">LogIn</Link>
-                            <Link to="/auth/register" className="btn btn-sm btn-primary ">Register</Link>
-                        </>
-                }
 
             </div>
         </div>
