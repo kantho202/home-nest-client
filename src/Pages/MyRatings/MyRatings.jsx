@@ -2,8 +2,8 @@ import React from 'react';
 
 const MyRatings = () => {
     return (
-          <div className="hero max-w-xl mx-auto min-h-screen p-20">
-            <div className="hero-content flex-col lg:flex-row shrink-0 shadow-2xl rounded-2xl">
+          <div className="hero  mx-auto min-h-screen p-20">
+            <div className="hero-content flex-col lg:flex-row shrink-0 w-2xl mx-auto shadow-2xl rounded-2xl">
                
                 <div className="card bg-base-100 w-full  ">
                     <div className="card-body">
@@ -31,7 +31,7 @@ const MyRatings = () => {
                                 <input type="text" name='password' className="input rounded-full w-full" placeholder="Property name" required />
                                 {/*  */}
                                 <label className="label">Short Review Text</label>
-                                <textarea placeholder='text' className=''  ></textarea>
+                                <textarea placeholder='text' className='h-15'  ></textarea>
                                 
 
                                

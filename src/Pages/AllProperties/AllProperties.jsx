@@ -50,7 +50,7 @@ const AllProperties = () => {
 };
   return (
 
-    <div className='px-8'>
+    <div className='px-8 py-20'>
       <div className='text-center pt-10'>
 
         <h1 className='text-4xl pb-5'>All Properties</h1>

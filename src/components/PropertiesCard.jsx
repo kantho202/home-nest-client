@@ -46,33 +46,35 @@ const PropertiesCard = ({ property }) => {
         location,
         property_price
     } = property;
-    const [heart,setHeart]=useState(false)
-    const handleHeartCount=()=>{
+    const [heart, setHeart] = useState(false)
+    const handleHeartCount = () => {
         console.log('clicked')
         setHeart(!heart)
     }
     return (
         <div
             data-aos="fade-up"
-            className=" border-1 border-[#dce0e0] p-3 rounded-[5px] overflow-hidden
-             shadow-md hover:shadow-[5px] transition-all duration-300"
-        >
+            className='group relative rounded-[5px] overflow-hidden  shadow-xl border-1 border-[#dce0e0] p-3
+         hover:shadow-2xl transition-all duration-500'
+            // className=" border-1 border-[#dce0e0] p-3 rounded-[5px] overflow-hidden
+            //  shadow-md hover:shadow-[5px] transition-all duration-300"
+         >
             {/* Image Section */}
-            <div className="relative">
+            <div className="relative h-60 overflow-hidden">
                 <img
                     src={property_image}
                     alt={property_name}
-                    className="w-full h-60 rounded-t-[5px] object-cover"
+                    className="w-full h-full rounded-t-[5px] object-cover group-hover:scale-110 transition-transform duration-500"
                 />
 
                 {/* Badges */}
                 <div className="relative  top-3 left-3 flex justify-between gap-2">
                     <span className="bg-green-500 -top-58 absolute text-white text-xs px-2 py-1 rounded">
-                        FEATURED
-                    </span>
-                    <span className="bg-black/70 -top-58 left-82 absolute text-white text-xs px-2 py-1 rounded">
                         {category}
                     </span>
+                    {/* <span className="bg-black/70 -top-58 left-82 absolute text-white text-xs px-2 py-1 rounded">
+                        {category}
+                    </span> */}
                 </div>
 
                 {/* Price */}
@@ -83,8 +85,8 @@ const PropertiesCard = ({ property }) => {
                 {/* Action Icons */}
                 <div className="absolute bottom-3 right-3 flex gap-2">
                     <button
-                    onClick={handleHeartCount}
-                    className={`bg-white/80 p-2 rounded-full hover:bg-primary cursor-pointer
+                        onClick={handleHeartCount}
+                        className={`bg-white/80 p-2 rounded-full hover:bg-primary cursor-pointer
                      hover:text-white transition ${heart ? "bg-primary text-white scale-110" : "bg-white/80"}`}>
                         <FaHeart />
                     </button>

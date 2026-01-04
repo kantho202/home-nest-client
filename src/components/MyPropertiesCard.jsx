@@ -252,19 +252,19 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition" />
 
 
-                <span className="absolute top-4 left-4 bg-indigo-600 text-white text-xs px-4 py-1 rounded-full shadow-lg">
+                <span className="absolute top-4 left-4 bg-green-500 text-white text-xs px-4 py-1 rounded-full shadow-lg">
                     {category}
                 </span>
 
 
-                <span className="absolute bottom-4 right-4 bg-white text-indigo-600 font-bold px-4 py-2 rounded-xl shadow">
-                    ৳ {property_price}
+                <span className="absolute bottom-4 right-4 bg-white text-red-500 font-bold px-4 py-2 rounded-xl shadow">
+                    $ {property_price}
                 </span>
             </div>
 
 
             <div className="p-5 space-y-3">
-                <h2 className="text-xl font-bold text-gray-800 line-clamp-1">
+                <h2 className="text-xl font-bold  line-clamp-1">
                     {property_name}
                 </h2>
 
@@ -277,7 +277,7 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
                 </p>
 
                 <p className="text-xs text-gray-400 flex items-center space-x-2">
-                  <MdEmail  />   <span> {email}</span>
+                    <MdEmail />   <span> {email}</span>
                 </p>
 
 

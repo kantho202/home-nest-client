@@ -14,7 +14,7 @@ const PropertiesDetails = () => {
         <img
           src={properties.property_image}
           alt={properties.property_name}
-          className="w-full h-[420px] object-cover"
+          className="w-full h-[420px] object-cover group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-black/40 flex items-end">
           <div className="p-8 text-white">

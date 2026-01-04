@@ -7,10 +7,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
-import firstSlide from '../../assets/1.avif';
+import firstSlide from '../../assets/image-6.avif';
 import secondSlide from '../../assets/2.avif';
-import thirdSlide from '../../assets/3.avif';
-import fourSlide from '../../assets/5.avif';
+import thirdSlide from '../../assets/image-3.avif';
+import fourSlide from '../../assets/image-5.avif';
 
 const Banner = () => {
   return (

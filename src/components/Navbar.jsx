@@ -168,7 +168,7 @@ const Navbar = () => {
                                         </li>
                                         {/* <li><a className='mb-3 p-2'>{user?.email}</a></li> */}
                                         
-                                        <button onClick={handleLogOut} className='btn btn-sm btn-outline my-btn '>
+                                        <button onClick={handleLogOut} className='btn btn-sm btn-outline my-btn border-0 '>
                                             <CiLogout size={20} /> LogOut</button>
 
                                     </ul>
