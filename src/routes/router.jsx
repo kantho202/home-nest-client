@@ -13,12 +13,14 @@ import PropertiesDetails from "../components/PropertiesDetails";
 import MyPropertiesCard from "../components/MyPropertiesCard";
 import NotFound from "../Pages/NotFound/NotFound";
 import MyPropertiesDetails from "../components/MyPropertiesDetails";
+import Loading from "../components/Loading";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
    Component:MainLayout,
+   hydrateFallbackElement:<Loading></Loading>,
     children:[
         {
             path:'/',
@@ -26,14 +28,14 @@ const router = createBrowserRouter([
         },
         {
             path:'/properties-details/:id',
-            loader:({params})=>fetch(`https://home-nest-cyan.vercel.app//properties/${params.id}`),
+            loader:({params})=>fetch(`http://localhost:3000/properties/${params.id}`),
             element:<PrivateRoute>
                 <PropertiesDetails></PropertiesDetails>
             </PrivateRoute>
         },    
         {
             path:'/allProperties',
-            loader:()=>fetch('https://home-nest-cyan.vercel.app//properties'),
+            loader:()=>fetch('http://localhost:3000/properties'),
             element:<AllProperties></AllProperties>
         },
         {
@@ -50,7 +52,7 @@ const router = createBrowserRouter([
         },
         {
             path:'/myProperties/:id',
-            loader:({params})=>fetch(`https://home-nest-cyan.vercel.app//myProperties/${params.id}`),
+            loader:({params})=>fetch(`http://localhost:3000/myProperties/${params.id}`),
             element:<PrivateRoute>
                 <MyPropertiesDetails></MyPropertiesDetails>
             </PrivateRoute>,
@@ -62,20 +64,28 @@ const router = createBrowserRouter([
                 <MyRatings></MyRatings>
             </PrivateRoute>
         },
-        {
-            path:'/auth/logIn',
-            element:<LogIn></LogIn>
-        },
-        {
-            path:'/auth/register',
-            element:<Register></Register>
-        },
+        // {
+        //     path:'/auth/logIn',
+        //     element:<LogIn></LogIn>
+        // },
+        // {
+        //     path:'/auth/register',
+        //     element:<Register></Register>
+        // },
         {
             path:"*",
             element:<NotFound></NotFound>
         }        
 
     ]
+  },
+  {
+    path:'/auth/login',
+    Component:LogIn
+  },
+  {
+    path:'/auth/register',
+    Component:Register
   },
 ]);
 

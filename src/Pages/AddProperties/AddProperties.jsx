@@ -28,7 +28,7 @@ const AddProperties = () => {
             image:image,
         }
 
-        fetch('https://home-nest-cyan.vercel.app//addProperties', {
+        fetch('http://localhost:3000/addProperties', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

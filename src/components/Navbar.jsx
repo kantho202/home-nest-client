@@ -1,32 +1,43 @@
 import React, { use, useEffect, useState } from 'react';
 import { Link, Links, NavLink } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
+import Logo from './logo';
+import { CiLogout } from "react-icons/ci";
 
 
 const Navbar = () => {
+    const { user, signOutUser } = use(AuthContext)
+      const [bg, setBg] = useState('bg-transparent');
+    const [textColor, setTextColor] = useState('text-base-100');
     const links = <>
-        <NavLink to="/" className="mr-3 mb-3 lg:mb-3 text-[15px]  font-regular"><li>Home</li></NavLink>
-        <NavLink to="/allProperties" className="mr-3 mb-3 lg:mb-3 text-[15px]  font-regular"><li>All Properties</li></NavLink>
-        <NavLink to="/addProperties" className="mr-3 mb-3 lg:mb-3 text-[15px]  font-regular"><li>Add Properties</li></NavLink>
-        <NavLink to="/myProperties" className="mr-3 mb-3 lg:mb-3 text-[15px]  font-regular"><li>My Properties</li></NavLink>
-        <NavLink to="/myRatings" className="mr-3 mb-3 lg:mb-3 text-[15px]  font-regular"><li>My Ratings</li></NavLink>
+        <NavLink to="/" className={`mr-5 mb-3 lg:mb-3 text-[15.5px] text-base-100 font-regular ${textColor}`}><li>Home</li></NavLink>
+        <NavLink to="/allProperties" className={`mr-5 mb-3 lg:mb-3 text-[15.5px] text-base-100 font-regular ${textColor}`}><li>All Properties</li></NavLink>
+        <NavLink to="/addProperties" className={`mr-5 mb-3 lg:mb-3 text-[15.5px] text-base-100 font-regular ${textColor}`}><li>Add Properties</li></NavLink>
+        {
+            user && <>
+
+                <NavLink to="/myProperties" className={`mr-5 mb-3 lg:mb-3 text-[15.5px] text-base-100 font-regular ${textColor}`}><li>My Properties</li></NavLink>
+                <NavLink to="/dashboard" className={`mr-5 mb-3 lg:mb-3 text-[15.5px] text-base-100 font-regular ${textColor}`}><li>Dashboard</li></NavLink>
+            </>
+        }
+        <NavLink to="/myRatings" className={`mr-5 mb-3 lg:mb-3 text-[15.5px] text-base-100 font-regular ${textColor}`}><li>My Ratings</li></NavLink>
     </>
 
-    const { user, signOutUser } = use(AuthContext)
+
 
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light")
 
     useEffect(() => {
         const html = document.querySelector('html')
-                    html.setAttribute("data-theme", theme)
-localStorage.setItem('theme',theme)
+        html.setAttribute("data-theme", theme)
+        localStorage.setItem('theme', theme)
     }, [theme])
     const handleLogOut = () => {
         signOutUser()
     }
 
     const handleTheme = (checked) => {
-        setTheme(checked ? 'dark' :'light')
+        setTheme(checked ? 'dark' : 'light')
         // console.log(checked)
         // const html = document.querySelector('html')
         // if (checked) {
@@ -37,42 +48,68 @@ localStorage.setItem('theme',theme)
         // }
 
     }
+
+  
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 20) {
+                setBg('bg-base-100 shadow-md');
+                if (theme === 'light') {
+                    setTextColor('text-black');
+                } else {
+                    setTextColor('text-white');
+                }
+            } else {
+                setBg('bg-transparent');
+                setTextColor(theme === 'light' ? 'text-black' : 'text-white');
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [theme]);
+
     return (
 
 
+        // <nav className="fixed top-0 left-0 w-full z-50  backdrop-blur">
+        // <nav className={`fixed top-0 left-0 w-full z-50 transition-colors bg-color-base-100 duration-300 ${bg}`}>
+        <nav className={`fixed top-0 left-0 w-full z-50 px-8 transition-colors duration-300 ${bg}`}>
 
 
 
-        <div className="navbar flex justify-between items-center   shadow-sm  ">
+            <div className="navbar flex justify-between items-center 
+          ">
 
-            <div className="flex items-center justify-between ">
-
-
-
-                <div className="">
-                    <input id="my-drawer-1" type="checkbox" className="drawer-toggle" />
-                    <div className="drawer-content">
+                <div className="flex items-center justify-between ">
 
 
-                        <label htmlFor="my-drawer-1" className="">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
 
-                        </label>
+                    <div className="lg:hidden">
+                        <input id="my-drawer-1" type="checkbox" className="drawer-toggle" />
+                        <div className="drawer-content">
+
+
+                            <label htmlFor="my-drawer-1" className="">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+
+                            </label>
+                        </div>
+                        <div className="drawer-side">
+                            <label htmlFor="my-drawer-1" aria-label="close sidebar" className="drawer-overlay"></label>
+                            <ul className="menu bg-base-200 min-h-full text-center w-80 p-4">
+
+                                {links}
+                                <Link to="/auth/logIn" className="btn btn-sm mr-4 mb-3 btn-outline outline-[#ff3333] w-full ">LogIn</Link>
+                                <Link to="/auth/register" className="btn btn-sm w-full btn-outline my-btn ">Register</Link>
+                            </ul>
+                        </div>
                     </div>
-                    <div className="drawer-side">
-                        <label htmlFor="my-drawer-1" aria-label="close sidebar" className="drawer-overlay"></label>
-                        <ul className="menu bg-base-200 min-h-full text-center w-80 p-4">
-
-                            {links}
-                            <Link to="/auth/logIn" className="btn btn-sm mr-4 mb-3 btn-outline w-full ">LogIn</Link>
-                            <Link to="/auth/register" className="btn btn-sm w-full my-btn ">Register</Link>
-                        </ul>
-                    </div>
-                </div>
 
 
-                <div className="">
-                    {/* <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                    <div className="">
+                        {/* <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
                     </div>
                     <ul
@@ -86,52 +123,64 @@ localStorage.setItem('theme',theme)
 
 
 
-                    <a href='/' className=" text-2xl text-center font-semibold ml-4 ">Home Nest</a>
+                        {/* <a href='/' className=" text-2xl text-center font-semibold ml-4 ">Home Nest</a> */}
+                        <Logo></Logo>
+                    </div>
+
                 </div>
 
-            </div>
+                <div className=' flex '>
+                    <ul className='hidden lg:flex '
+                    >
+                        {links}
 
-            <div className="  flex items-center pr-">
-                <ul className="menu menu-horizontal px-1 hidden lg:flex justify-between  items-center">
+                    </ul>
+                </div>
 
-                  
+                <div className="  flex items-center ">
+                    <ul className="menu menu-horizontal px-1 hidden lg:flex justify-between  items-center">
 
-                    {links}
-                </ul>
-                {
-                    user ?
-                        <div className="flex gap-2 mr-4">
 
-                            <div className="dropdown dropdown-end">
-                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                    <div className="w-10 rounded-full">
-                                        <img
-                                            alt="Tailwind CSS Navbar component"
-                                            src={user?.photoURL} />
+
+                        {/* {links} */}
+                    </ul>
+                    {
+                        user ?
+                            <div className="flex gap-2 mr-4">
+
+                                <div className="dropdown dropdown-end">
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                            <img
+                                                alt="Tailwind CSS Navbar component"
+                                                src={user?.photoURL} />
+                                        </div>
                                     </div>
-                                </div>
-                                <ul
-                                    tabIndex="-1"
-                                    className="menu menu-md dropdown-content bg-base-100 rounded-box z-2 mt-3 w-70 p-2 shadow">
-                                    <li className=''>
-                                        <a className="justify-between mb-3 ">
-                                            {user?.displayName}
-                                            <span className="badge">New</span>
-                                        </a>
-                                    </li>
-                                    <li><a className='mb-3 p-2'>{user?.email}</a></li>
-                                    <button onClick={handleLogOut} className='btn btn-sm btn-outline my-btn '>LogOut</button>
+                                    <ul
+                                        tabIndex="-1"
+                                        className="menu menu-md dropdown-content bg-base-100 rounded-box z-2 mt-3 w-70 p-2 shadow">
+                                            <li><a className='mb-3 p-2'>My Profile</a></li>
+                                        <li className=''>
+                                            <a className="justify-between mb-3 ">
+                                                {user?.displayName}
+                                                <span className="badge">New</span>
+                                            </a>
+                                        </li>
+                                        {/* <li><a className='mb-3 p-2'>{user?.email}</a></li> */}
+                                        
+                                        <button onClick={handleLogOut} className='btn btn-sm btn-outline my-btn '>
+                                            <CiLogout size={20} /> LogOut</button>
 
-                                </ul>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        :
-                        <>
-                            <Link to="/auth/logIn" className="btn btn-sm mr-4 btn-outline my-btn">LogIn</Link>
-                            <Link to="/auth/register" className="btn btn-sm my-btn mr-4">Register</Link>
-                        </>
-                }
-                  {/* theme */}
+                            :
+                            <>
+                                <Link to="/auth/logIn" className="btn btn-sm mr-4 btn-outline border-0 my-btn">LogIn</Link>
+                                <Link to="/auth/register" className="btn btn-sm my-btn mr-4 border-0">Register</Link>
+                            </>
+                    }
+                    {/* theme */}
                     <label className="swap swap-rotate text-gray-600 ">
                         {/* this hidden checkbox controls the state */}
                         <input type="checkbox" onChange={(e) => handleTheme(e.target.checked)} className="theme-controller" value="synthwave" />
@@ -156,8 +205,9 @@ localStorage.setItem('theme',theme)
                     </label>
 
 
+                </div>
             </div>
-        </div>
+        </nav>
     );
 };
 

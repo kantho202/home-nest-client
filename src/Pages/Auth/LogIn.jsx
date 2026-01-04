@@ -45,7 +45,7 @@ const LogIn = () => {
             }))
     }
     return (
-        <div className="hero bg-base-200 min-h-screen p-20">
+        <div className="lg:hero flex items-center justify-center bg-base-200 min-h-screen lg:p-20">
             <div className="hero-content flex-col lg:flex-row shrink-0 shadow-2xl rounded-2xl">
                 <div className="text-center lg:text-left">
 
