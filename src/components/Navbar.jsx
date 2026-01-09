@@ -75,6 +75,7 @@ const Navbar = () => {
 
         // <nav className="fixed top-0 left-0 w-full z-50  backdrop-blur">
         // <nav className={`fixed top-0 left-0 w-full z-50 transition-colors bg-color-base-100 duration-300 ${bg}`}>
+<<<<<<< HEAD
         <nav className={`fixed top-0 left-0 w-full z-50 px-2 lg:px-8 transition-colors duration-300 ${bg}`}>
 
 
@@ -87,6 +88,20 @@ const Navbar = () => {
 
 
                     <div className="lg:hidden pr-2">
+=======
+        <nav className={`fixed top-0 left-0 w-full z-50 px-8 transition-colors duration-300 ${bg}`}>
+
+
+
+            <div className="navbar flex justify-between items-center 
+          ">
+
+                <div className="flex items-center justify-between ">
+
+
+
+                    <div className="lg:hidden">
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
                         <input id="my-drawer-1" type="checkbox" className="drawer-toggle" />
                         <div className="drawer-content">
 
@@ -98,7 +113,11 @@ const Navbar = () => {
                         </div>
                         <div className="drawer-side">
                             <label htmlFor="my-drawer-1" aria-label="close sidebar" className="drawer-overlay"></label>
+<<<<<<< HEAD
                             <ul className="menu bg-base-100 min-h-full text-center w-80 p-4   items-center">
+=======
+                            <ul className="menu bg-base-200 min-h-full text-center w-80 p-4">
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
 
                                 {links}
                                 <Link to="/auth/logIn" className="btn btn-sm mr-4 mb-3 btn-outline outline-[#ff3333] w-full ">LogIn</Link>
@@ -108,7 +127,11 @@ const Navbar = () => {
                     </div>
 
 
+<<<<<<< HEAD
                     <div className="flex flex-1 justify-center lg:justify-start text-center">
+=======
+                    <div className="">
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
                         {/* <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
                     </div>
@@ -124,7 +147,11 @@ const Navbar = () => {
 
 
                         {/* <a href='/' className=" text-2xl text-center font-semibold ml-4 ">Home Nest</a> */}
+<<<<<<< HEAD
                         <Logo className="text-center lg:mx-0  mx-auto"></Logo>
+=======
+                        <Logo></Logo>
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
                     </div>
 
                 </div>
@@ -176,8 +203,13 @@ const Navbar = () => {
                             </div>
                             :
                             <>
+<<<<<<< HEAD
                                 <Link to="/auth/logIn" className="btn btn-sm mr-4 btn-outline border-0 my-btn hidden lg:flex">LogIn</Link>
                                 <Link to="/auth/register" className="btn btn-sm my-btn mr-4 border-0 hidden lg:flex">Register</Link>
+=======
+                                <Link to="/auth/logIn" className="btn btn-sm mr-4 btn-outline border-0 my-btn">LogIn</Link>
+                                <Link to="/auth/register" className="btn btn-sm my-btn mr-4 border-0">Register</Link>
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
                             </>
                     }
                     {/* theme */}

@@ -19,6 +19,7 @@ import AuthLayout from "../Layout/AuthLayout";
 const router = createBrowserRouter([
     {
         path: "/",
+<<<<<<< HEAD
         element: <MainLayout />,
         children: [
             {
@@ -28,13 +29,29 @@ const router = createBrowserRouter([
             {
                 path: '/properties-details/:id',
                 loader: ({ params }) => fetch(`https://online-ticket-booking-server.vercel.app/properties/${params.id}`),
+=======
+        Component: MainLayout,
+        hydrateFallbackElement: <Loading></Loading>,
+        children: [
+            {
+                path: '/',
+                Component: Home
+            },
+            {
+                path: '/properties-details/:id',
+                loader: ({ params }) => fetch(`http://localhost:3000/properties/${params.id}`),
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
                 element: <PrivateRoute>
                     <PropertiesDetails></PropertiesDetails>
                 </PrivateRoute>
             },
             {
                 path: '/allProperties',
+<<<<<<< HEAD
                 loader: () => fetch('https://online-ticket-booking-server.vercel.app/properties'),
+=======
+                loader: () => fetch('http://localhost:3000/properties'),
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
                 element: <AllProperties></AllProperties>
             },
             {
@@ -51,7 +68,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myProperties/:id',
+<<<<<<< HEAD
                 loader: ({ params }) => fetch(`https://online-ticket-booking-server.vercel.app/myProperties/${params.id}`),
+=======
+                loader: ({ params }) => fetch(`http://localhost:3000/myProperties/${params.id}`),
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
                 element: <PrivateRoute>
                     <MyPropertiesDetails></MyPropertiesDetails>
                 </PrivateRoute>,
@@ -80,6 +101,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/',
+<<<<<<< HEAD
         element: <AuthLayout />,
         children: [
             {
@@ -89,6 +111,17 @@ const router = createBrowserRouter([
             {
                 path: '/auth/register',
                 element: <Register />
+=======
+        element: <AuthLayout></AuthLayout>,
+        children: [
+            {
+                path: '/auth/login',
+                Component: LogIn
+            },
+            {
+                path: '/auth/register',
+                Component: Register
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
             },
         ]
     },

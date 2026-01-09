@@ -28,7 +28,11 @@ const AddProperties = () => {
             image:image,
         }
 
+<<<<<<< HEAD
         fetch('https://online-ticket-booking-server.vercel.app/addProperties', {
+=======
+        fetch('http://localhost:3000/addProperties', {
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

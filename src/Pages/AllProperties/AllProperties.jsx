@@ -5,7 +5,11 @@ import { AuthContext } from '../../context/AuthContext';
 import Loading from '../../components/Loading';
 
 
+<<<<<<< HEAD
 
+=======
+import { useQuery } from '@tanstack/react-query';
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
 
 const AllProperties = () => {
  
@@ -21,7 +25,11 @@ const AllProperties = () => {
     const search_text = e.target.search.value;
     console.log(search_text)
     setLoading(true)
+<<<<<<< HEAD
     fetch(`https://online-ticket-booking-server.vercel.app/search?search=${search_text}&sort=${sort}&order=${order}`)
+=======
+    fetch(`http://localhost:3000/search?search=${search_text}&sort=${sort}&order=${order}`)
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
       .then(res => res.json())
       .then(data => {
         console.log('search ', data)
@@ -30,7 +38,17 @@ const AllProperties = () => {
       })
   }
  
+<<<<<<< HEAD
 
+=======
+// const {data: [propertiesHome]}=useQuery({
+//   queryKey:[properties],
+//   queryFn:async()=>{
+//     const result =axiosSecure.get('/search')
+//     return result.data;
+//   }
+// })
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
   // const handleSelect = (e) => {
   //   const sortText = e.target.value;
   //   setSort(sortText.split("-")[0])

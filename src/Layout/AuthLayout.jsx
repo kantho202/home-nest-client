@@ -1,6 +1,10 @@
 import React from 'react';
 import LogIn from '../Pages/Auth/LogIn';
+<<<<<<< HEAD
 import { Outlet } from 'react-router-dom';
+=======
+import { Outlet } from 'react-router';
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
 import Logo from '../components/logo';
 
 const AuthLayout = () => {

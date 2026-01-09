@@ -7,7 +7,11 @@ const MyProperties = () => {
     const [properties, setProperties] = useState([])
     useEffect(() => {
         if (user?.email) {
+<<<<<<< HEAD
             fetch(`https://online-ticket-booking-server.vercel.app/myProperties/?email=${user?.email}`)
+=======
+            fetch(`http://localhost:3000/myProperties/?email=${user?.email}`)
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
@@ -18,7 +22,11 @@ const MyProperties = () => {
     }, [user?.email])
 
     const handleDelete = (id) => {
+<<<<<<< HEAD
         fetch(`https://online-ticket-booking-server.vercel.app/myProperties/${id}`, {
+=======
+        fetch(`http://localhost:3000/myProperties/${id}`, {
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
             method: 'DELETE'
         })
             .then(res => res.json())

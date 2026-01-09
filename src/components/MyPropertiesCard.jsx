@@ -44,7 +44,11 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
         console.log(name, property_name, category, image, property_price, email, location, description)
 
         const updateProperties = { _id, name, property_name, email, category, property_price, location, description, image }
+<<<<<<< HEAD
         fetch(`https://online-ticket-booking-server.vercel.app/myProperties/${_id}`, {
+=======
+        fetch(`http://localhost:3000/myProperties/${_id}`, {
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

@@ -1,7 +1,11 @@
 import React from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { FaHeart } from 'react-icons/fa6';
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
+=======
+import { Link } from 'react-router';
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
 
 const AllPropertiesCard = ({ property }) => {
     const { _id, property_name, category, property_image, description, location, property_price } = property
