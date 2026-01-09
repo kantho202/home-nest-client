@@ -46,7 +46,7 @@ const Contact = () => {
               <input
                 type="text"
                 placeholder="Enter your name"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full outline-0 "
               />
             </div>
 
@@ -57,7 +57,7 @@ const Contact = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full outline-0"
               />
             </div>
 
@@ -67,13 +67,13 @@ const Contact = () => {
               </label>
               <textarea
                 placeholder="Write your message..."
-                className="textarea textarea-bordered w-full h-28"
+                className="textarea textarea-bordered w-full h-28 outline-0"
               ></textarea>
             </div>
 
             <button
               type="submit"
-              className="w-full btn  font-medium py-2 rounded-full shadow-md my-btn"
+              className="w-full btn  font-medium py-2 rounded-[10px] h-11 shadow-md my-btn"
             >
               Send Message
             </button>

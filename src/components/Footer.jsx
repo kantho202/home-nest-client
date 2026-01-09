@@ -2,7 +2,7 @@ import React from 'react';
 import { FaFacebookF, FaXTwitter } from 'react-icons/fa6';
 import { FcFeedback } from 'react-icons/fc';
 import { IoLogoInstagram } from 'react-icons/io5';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (

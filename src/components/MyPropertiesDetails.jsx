@@ -1,6 +1,6 @@
 import React from 'react';
 import { LuArrowRight } from 'react-icons/lu';
-import { useLoaderData } from 'react-router';
+import { useLoaderData } from 'react-router-dom';
 
 const MyPropertiesDetails = () => {
     const properties = useLoaderData()

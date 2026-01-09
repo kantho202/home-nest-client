@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
 @import "tailwindcss";
 @import "tailwindcss";
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark;
-  --color-primary: #152127;
+  --color-primary: #ff3333;
   --color-secondary: teal;
+   --color-base-100:#faf7f5;
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
@@ -18,7 +20,7 @@
 
 [data-theme="light"] {
   .my-btn {
-    background-color: #152127;
+    background-color:#ff3333;
     color:white;
     /* border-color: #1EA1F1; */
   }
@@ -29,7 +31,8 @@
 }
 [data-theme="dark"] {
   .my-btn {
-    background-color: gray;
+    /* background-color: rgb(79 70 229); */
+    background-color:#ff3333;
     color:white;
     
     /* border-color: #1EA1F1; */
@@ -52,4 +55,9 @@
 }
  a.active{
    @apply underline decoration-2  underline-offset-6;
+}
+
+.dm-serif-display-regular {
+  font-family: "DM Serif Display", serif;
+  font-style: normal;
 }
