@@ -2,6 +2,12 @@
 
 A modern, full-featured real estate platform built with React and Firebase, designed to connect property buyers, sellers, and agents in a seamless digital experience.
 
+## 📋 Project Description
+
+**HomeNest** is a comprehensive real estate listing platform that simplifies property buying and selling through modern web technologies. Built with React 19 and Firebase, it serves as a digital marketplace connecting property buyers, sellers, and real estate professionals.
+
+The platform features advanced property search, detailed listings with image galleries, secure user authentication, and real-time property management. With a responsive design and intuitive interface, HomeNest provides a seamless experience across all devices while demonstrating modern full-stack development practices.
+
 ## 🌐 Live Demo
 
 **[Visit HomeNest](https://home-nest-f0c86.web.app)**
@@ -159,9 +165,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
+- GitHub: [@kantho202](https://github.com/kantho202)
+- LinkedIn: [ LinkedIn](https://www.linkedin.com/in/dikshit-chakma)
+- Email: dikshitchakma2002@gmail.com
 
 ## 🙏 Acknowledgments
 
