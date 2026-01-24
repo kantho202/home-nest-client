@@ -12,6 +12,14 @@ The platform features advanced property search, detailed listings with image gal
 
 **[Visit HomeNest](https://home-nest-f0c86.web.app)**
 
+## 📸 Screenshots
+
+### Home Page
+![HomeNest Home Page](src/assets/home-nest-1.avif)
+
+### Property Listings
+![Property Listings](src/assets/home-nest-4.avif)
+
 ## ✨ Features
 
 ### 🔍 **Advanced Property Search & Filtering**
