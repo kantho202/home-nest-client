@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import { use, useState } from 'react';
+=======
+import React, { use } from 'react';
+import { MdOutlineMailOutline } from 'react-icons/md';
+>>>>>>> 05d8a8a325472d1fe675c66b29ed241ceb7f6d5f
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
@@ -78,6 +83,7 @@ const Register = () => {
     const handleGoogleSingIn = () => {
         setIsLoading(true)
         signInWithGoogle()
+<<<<<<< HEAD
             .then((result) => {
                 const newUser = {
                     name: result.user.displayName,
@@ -98,6 +104,26 @@ const Register = () => {
                 console.log(result.user)
                 navigate(`${location.state ? location.state : "/"}`)
                 toast.success('Account created successfully!')
+=======
+        .then((result)=>{
+
+            const newUser ={
+                name:result.user.displayName,
+                email:result.user.email,
+                image:result.user.photoURL,
+                // categories:result.user.category
+            }
+<<<<<<< HEAD
+            fetch('https://online-ticket-booking-server.vercel.app/addProperties',{
+=======
+            fetch('http://localhost:3000/addProperties',{
+>>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
+                method:'POST',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(newUser)
+>>>>>>> 05d8a8a325472d1fe675c66b29ed241ceb7f6d5f
             })
             .catch((error) => {
                 console.log(error)

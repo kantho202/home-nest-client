@@ -22,7 +22,11 @@
     "react-dom": "^19.1.1",
     "react-icons": "^5.5.0",
     "react-router": "^7.9.5",
+<<<<<<< HEAD
     "react-router-dom": "^7.12.0",
+=======
+    "react-router-dom": "^7.11.0",
+>>>>>>> 05d8a8a325472d1fe675c66b29ed241ceb7f6d5f
     "react-toastify": "^11.0.5",
     "recharts": "^3.7.0",
     "router": "^2.2.0",
