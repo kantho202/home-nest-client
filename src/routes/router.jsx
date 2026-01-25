@@ -1,6 +1,6 @@
-import { createBrowserRouter } from "react-router";
-import { RouterProvider } from "react-router/dom";
+import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
+import DashboardLayout from "../Layout/DashboardLayout";
 import Home from "../Pages/Home/Home";
 import AddProperties from "../Pages/AddProperties/AddProperties";
 import AllProperties from "../Pages/AllProperties/AllProperties";
@@ -15,28 +15,29 @@ import NotFound from "../Pages/NotFound/NotFound";
 import MyPropertiesDetails from "../components/MyPropertiesDetails";
 import Loading from "../components/Loading";
 import AuthLayout from "../Layout/AuthLayout";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import DashboardProfile from "../Pages/Dashboard/DashboardProfile";
 
 
 const router = createBrowserRouter([
     {
         path: "/",
-        Component: MainLayout,
-        hydrateFallbackElement: <Loading></Loading>,
+        element: <MainLayout />,
         children: [
             {
                 path: '/',
-                Component: Home
+                element: <Home />
             },
             {
                 path: '/properties-details/:id',
-                loader: ({ params }) => fetch(`http://localhost:3000/properties/${params.id}`),
+                loader: ({ params }) => fetch(`https://home-nest-cyan.vercel.app/properties/${params.id}`),
                 element: <PrivateRoute>
                     <PropertiesDetails></PropertiesDetails>
                 </PrivateRoute>
             },
             {
                 path: '/allProperties',
-                loader: () => fetch('http://localhost:3000/properties'),
+                loader: () => fetch('https://home-nest-cyan.vercel.app/properties'),
                 element: <AllProperties></AllProperties>
             },
             {
@@ -53,7 +54,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myProperties/:id',
-                loader: ({ params }) => fetch(`http://localhost:3000/myProperties/${params.id}`),
+                loader: ({ params }) => fetch(`https://home-nest-cyan.vercel.app/myProperties/${params.id}`),
                 element: <PrivateRoute>
                     <MyPropertiesDetails></MyPropertiesDetails>
                 </PrivateRoute>,
@@ -65,32 +66,47 @@ const router = createBrowserRouter([
                     <MyRatings></MyRatings>
                 </PrivateRoute>
             },
-            // {
-            //     path:'/auth/logIn',
-            //     element:<LogIn></LogIn>
-            // },
-            // {
-            //     path:'/auth/register',
-            //     element:<Register></Register>
-            // },
             {
                 path: "*",
                 element: <NotFound></NotFound>
             }
-
+        ]
+    },
+    {
+        path: '/dashboard',
+        element: <PrivateRoute>
+            <DashboardLayout />
+        </PrivateRoute>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <Dashboard />
+            },
+            {
+                path: '/dashboard/profile',
+                element: <DashboardProfile />
+            },
+            {
+                path: '/dashboard/my-properties',
+                element: <MyProperties />
+            },
+            {
+                path: '/dashboard/add-property',
+                element: <AddProperties />
+            }
         ]
     },
     {
         path: '/',
-        element: <AuthLayout></AuthLayout>,
+        element: <AuthLayout />,
         children: [
             {
                 path: '/auth/login',
-                Component: LogIn
+                element: <LogIn />
             },
             {
                 path: '/auth/register',
-                Component: Register
+                element: <Register />
             },
         ]
     },

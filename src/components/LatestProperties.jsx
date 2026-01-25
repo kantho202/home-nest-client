@@ -5,7 +5,7 @@ const LatestProperties = ({ latestPropertiesPromise }) => {
     const properties = use(latestPropertiesPromise)
     // console.log(properties)
     return (
-        <div className='py-20 px-8 '>
+        <div className='py-20 px-4 lg:px-8 '>
            <div className='text-center '>
              <h2 className="text-4xl font-bold  mb-6">
                 Featured Real Estate 

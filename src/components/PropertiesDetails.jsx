@@ -1,14 +1,17 @@
 import React from 'react';
 import { LuArrowRight } from 'react-icons/lu';
 import { FaUserTie, FaEnvelope, FaCalendarAlt, FaTag } from 'react-icons/fa';
-import { useLoaderData } from 'react-router';
+import { useLoaderData } from 'react-router-dom';
+import { Link } from 'react-router';
 
 const PropertiesDetails = () => {
   const properties = useLoaderData();
 
   return (
     <div className="min-h-screen  px-5 lg:px-20 py-16">
-
+      <div className='my-5 btn'>
+        <Link to={'/'} className='font-semibold font-sans text-xl  '>Go Back</Link>
+      </div>
       {/* Hero Section */}
       <div className="relative mb-16 rounded-[5px] overflow-hidden shadow-2xl">
         <img
@@ -46,7 +49,7 @@ const PropertiesDetails = () => {
           <div className="grid grid-cols-2 gap-6">
             <p>
               <span className="font-semibold">Price:</span>{' '}
-              <span className="text-primary font-bold">
+              <span className="text- font-bold">
                 ${properties.property_price}
               </span>
             </p>
@@ -63,8 +66,8 @@ const PropertiesDetails = () => {
 
         {/* Agent Card */}
         <div className=" rounded-2xl p-8 shadow-lg flex flex-col items-center text-center">
-          <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-            <FaUserTie className="text-primary text-3xl" />
+          <div className="w-20 h-20 rounded-full bg-[#ff3333]/10 flex items-center justify-center mb-4">
+            <FaUserTie className="text-[#ff3333] text-3xl" />
           </div>
 
           <h3 className="text-xl font-bold">
@@ -84,7 +87,7 @@ const PropertiesDetails = () => {
             </p>
           </div>
 
-          <button className="btn btn-primary mt-6 w-full">
+          <button className="btn bg-[#ff3333] text-white mt-6 w-full">
             Contact Agent
           </button>
         </div>

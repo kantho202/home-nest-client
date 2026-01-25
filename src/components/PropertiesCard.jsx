@@ -33,7 +33,7 @@
 
 
 import React, { useState } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { FaBed, FaBath, FaRulerCombined, FaMapMarkerAlt, FaHeart } from 'react-icons/fa';
 
 const PropertiesCard = ({ property }) => {
@@ -86,8 +86,8 @@ const PropertiesCard = ({ property }) => {
                 <div className="absolute bottom-3 right-3 flex gap-2">
                     <button
                         onClick={handleHeartCount}
-                        className={`bg-white/80 p-2 rounded-full hover:bg-primary cursor-pointer
-                     hover:text-white transition ${heart ? "bg-primary text-white scale-110" : "bg-white/80"}`}>
+                        className={`bg-white/80 p-2 rounded-full hover:bg-[#ff3333] cursor-pointer
+                     hover:text-white transition ${heart ? "bg-[#ff3333] text-white scale-110" : "bg-white/80"}`}>
                         <FaHeart />
                     </button>
                 </div>
@@ -96,7 +96,7 @@ const PropertiesCard = ({ property }) => {
             {/* Content */}
             <div className="p-5">
                 <h3 className="text-lg font-bold mb-1">
-                    {property_name}
+                    {property_name.slice(0,20)}...
                 </h3>
 
                 <p className="flex items-center gap-2 text-sm text-gray-500 mb-3">

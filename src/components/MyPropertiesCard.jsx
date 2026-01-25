@@ -1,5 +1,5 @@
 import React, { use, useRef } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../context/AuthContext';
 import { FaUser } from 'react-icons/fa';
@@ -44,7 +44,7 @@ const MyPropertiesCard = ({ myProperty, onDelete, onUpdate }) => {
         console.log(name, property_name, category, image, property_price, email, location, description)
 
         const updateProperties = { _id, name, property_name, email, category, property_price, location, description, image }
-        fetch(`http://localhost:3000/myProperties/${_id}`, {
+        fetch(`https://home-nest-cyan.vercel.app/myProperties/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

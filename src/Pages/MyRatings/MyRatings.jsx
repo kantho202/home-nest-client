@@ -2,8 +2,8 @@ import React from 'react';
 
 const MyRatings = () => {
     return (
-          <div className="hero  mx-auto min-h-screen p-20">
-            <div className="hero-content flex-col lg:flex-row shrink-0 w-2xl mx-auto shadow-2xl rounded-2xl">
+          <div className="lg:hero flex items-center   mx-auto min-h-screen lg:py-30">
+            <div className="hero-content flex-col lg:flex-row shrink-0 w-full lg:w-2xl  mx-auto shadow-2xl rounded-2xl">
                
                 <div className="card bg-base-100 w-full  ">
                     <div className="card-body">

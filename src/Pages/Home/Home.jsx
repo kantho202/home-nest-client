@@ -10,7 +10,7 @@ import RealEstateAccordion from './RealEstateAccordion';
 import PropertyFeatureSection from './PropertyFeatureSection';
 import RealEstateShowcase from './RealEstateShowcase ';
 
-const latestPropertiesPromise =fetch('http://localhost:3000/latest-properties').then(res=>res.json())
+const latestPropertiesPromise =fetch('https://home-nest-cyan.vercel.app/latest-properties').then(res=>res.json())
 
 const Home = () => {
     return (

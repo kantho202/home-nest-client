@@ -1,5 +1,5 @@
 import React, { use, useEffect, useState } from 'react';
-import { Link, Links, NavLink } from 'react-router';
+import { Link, Links, NavLink } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import Logo from './logo';
 import { CiLogout } from "react-icons/ci";
@@ -75,9 +75,7 @@ const Navbar = () => {
 
         // <nav className="fixed top-0 left-0 w-full z-50  backdrop-blur">
         // <nav className={`fixed top-0 left-0 w-full z-50 transition-colors bg-color-base-100 duration-300 ${bg}`}>
-        <nav className={`fixed top-0 left-0 w-full z-50 px-8 transition-colors duration-300 ${bg}`}>
-
-
+        <nav className={`fixed top-0 left-0 w-full z-50 px-4 lg:px-8 transition-colors duration-300 ${bg}`}>
 
             <div className="navbar flex justify-between items-center 
           ">
@@ -86,7 +84,7 @@ const Navbar = () => {
 
 
 
-                    <div className="lg:hidden">
+                    <div className="lg:hidden mr-3">
                         <input id="my-drawer-1" type="checkbox" className="drawer-toggle" />
                         <div className="drawer-content">
 
@@ -124,7 +122,7 @@ const Navbar = () => {
 
 
                         {/* <a href='/' className=" text-2xl text-center font-semibold ml-4 ">Home Nest</a> */}
-                        <Logo></Logo>
+                        <Logo className={`${textColor}`} ></Logo>
                     </div>
 
                 </div>
@@ -159,7 +157,7 @@ const Navbar = () => {
                                     <ul
                                         tabIndex="-1"
                                         className="menu menu-md dropdown-content bg-base-100 rounded-box z-2 mt-3 w-70 p-2 shadow">
-                                            <li><a className='mb-3 p-2'>My Profile</a></li>
+                                            <Link to="/dashboard/profile"><li><a className='mb-3 p-2'>My Profile</a></li></Link>
                                         <li className=''>
                                             <a className="justify-between mb-3 ">
                                                 {user?.displayName}
@@ -176,8 +174,8 @@ const Navbar = () => {
                             </div>
                             :
                             <>
-                                <Link to="/auth/logIn" className="btn btn-sm mr-4 btn-outline border-0 my-btn">LogIn</Link>
-                                <Link to="/auth/register" className="btn btn-sm my-btn mr-4 border-0">Register</Link>
+                                <Link to="/auth/logIn" className="btn hidden lg:flex btn-sm mr-4 btn-outline border-0 my-btn">LogIn</Link>
+                                <Link to="/auth/register" className="btn  hidden lg:flex btn-sm my-btn mr-4 border-0">Register</Link>
                             </>
                     }
                     {/* theme */}
