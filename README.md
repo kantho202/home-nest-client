@@ -6,18 +6,7 @@ A modern, full-featured real estate platform built with React and Firebase, desi
 
 **HomeNest** is a comprehensive real estate listing platform that simplifies property buying and selling through modern web technologies. Built with React 19 and Firebase, it serves as a digital marketplace connecting property buyers, sellers, and real estate professionals.
 
-The platform features advanced property search, detailed listings with image galleries, secure user authentication, and real-time property management. With a responsive design and intuitive interface, HomeNest provides a seamless experience across all devices while demonstrating modern full-stack development practices.
-
-### 🎯 Three Major Features/Services
-• **Advanced Property Search & Filtering** - Powerful search functionality with multiple filter options by location, price range, property type, and amenities
-• **Secure User Authentication & Property Management** - Firebase-powered authentication with personalized dashboards for adding, editing, and managing property listings
-• **Comprehensive Property Listings** - Detailed property information with high-quality image galleries, ratings, reviews, and interactive map integration
-
-### 💻 Used Tech Stacks
-• **Frontend:** React 19, Vite, React Router DOM, Tailwind CSS, DaisyUI
-• **Backend & Database:** Firebase (Authentication, Firestore, Storage)
-• **State Management:** TanStack React Query, Context API
-• **UI/UX Libraries:** React Icons, Lucide React, AOS, Swiper, SweetAlert2, React Toastify
+The platform features advanced property search, detailed listings with image galleries, secure user authentication, and real-time property management. With a responsive design and intuitive interface, HomeNest provides a seamless experience across all devices.
 
 ## 🌐 Live Demo
 
@@ -31,66 +20,47 @@ The platform features advanced property search, detailed listings with image gal
 ### Property Listings
 ![Property Listings](src/assets/home-nest-4.avif)
 
-## ✨ Features
+## ✨ Key Features
 
-### 🔍 **Advanced Property Search & Filtering**
-- Powerful search functionality with multiple filter options
-- Filter by location, price range, property type, and amenities
-- Real-time search results with optimized performance
+### 🎯 Three Major Features
+• **Advanced Property Search & Filtering** - Powerful search with multiple filter options by location, price range, property type, and amenities
+• **Secure User Authentication & Property Management** - Firebase-powered authentication with personalized dashboards for managing listings
+• **Comprehensive Property Listings** - Detailed property information with high-quality image galleries, ratings, and reviews
 
-### 📸 **Comprehensive Property Listings**
-- High-quality image galleries for each property
-- Detailed property information including price, amenities, and descriptions
+### Additional Features
+- Real-time property updates and notifications
 - Interactive map integration for location visualization
-- Property ratings and reviews system
-
-### 🔐 **Secure Authentication System**
-- Firebase-powered user authentication
-- Secure sign-up and login functionality
-- Personalized user dashboards
-- Protected routes and user session management
-
-### 🏡 **Property Management**
-- Add new property listings with rich media support
-- Edit and update existing property details
-- Delete or mark properties as sold
-- Real-time updates across the platform
-
-### 📱 **Responsive Design**
-- Fully responsive UI optimized for all devices
-- Modern, clean interface built with Tailwind CSS and DaisyUI
-- Smooth animations and transitions with AOS
-- Mobile-first design approach
+- Add, edit, and delete property listings
+- Responsive design optimized for all devices
+- Smooth animations and modern UI with Tailwind CSS and DaisyUI
 
 ## 🛠️ Tech Stack
 
-### Frontend
+### 💻 Frontend
 - **React 19** - Modern React with latest features
 - **Vite** - Fast build tool and development server
 - **React Router DOM** - Client-side routing
 - **Tailwind CSS** - Utility-first CSS framework
 - **DaisyUI** - Component library for Tailwind CSS
 
-### Backend & Database
-- **Firebase** - Authentication, Firestore database, and hosting
+### 🔥 Backend & Database
+- **Firebase Authentication** - Secure user authentication
+- **Firestore** - NoSQL cloud database
 - **Firebase Storage** - Image and file storage
+- **Firebase Hosting** - Fast and secure web hosting
 
-### State Management & Data Fetching
+### 📊 State Management & Data Fetching
 - **TanStack React Query** - Server state management
 - **Context API** - Global state management
+- **Axios** - HTTP client for API requests
 
-### UI/UX Libraries
-- **React Icons** - Icon library
-- **Lucide React** - Modern icon set
+### 🎨 UI/UX Libraries
+- **React Icons & Lucide React** - Icon libraries
 - **AOS** - Animate on scroll library
 - **Swiper** - Touch slider component
 - **React Rating** - Star rating component
 - **SweetAlert2** - Beautiful alert dialogs
 - **React Toastify** - Toast notifications
-
-### Development Tools
-- **ESLint** - Code linting
-- **Axios** - HTTP client
 
 ## 🚀 Getting Started
 
@@ -183,16 +153,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Your Name**
+**Dikshit Chakma**
 - GitHub: [@kantho202](https://github.com/kantho202)
-- LinkedIn: [ LinkedIn](https://www.linkedin.com/in/dikshit-chakma)
-- Email: your.email@example.com
+- LinkedIn: [Dikshit Chakma](https://www.linkedin.com/in/dikshit-chakma)
 
 ## 🙏 Acknowledgments
 
 - Firebase for providing excellent backend services
 - React team for the amazing framework
-- Tailwind CSS for the utility-first CSS framework
+- Tailwind CSS and DaisyUI for the beautiful UI components
 - All contributors and the open-source community
 
 ---
