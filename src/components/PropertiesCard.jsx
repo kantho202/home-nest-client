@@ -33,15 +33,7 @@
 
 
 import React, { useState } from 'react';
-<<<<<<< HEAD
 import { Link } from 'react-router-dom';
-=======
-<<<<<<< HEAD
-import { Link } from 'react-router-dom';
-=======
-import { Link } from 'react-router';
->>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
->>>>>>> 05d8a8a325472d1fe675c66b29ed241ceb7f6d5f
 import { FaBed, FaBath, FaRulerCombined, FaMapMarkerAlt, FaHeart } from 'react-icons/fa';
 
 const PropertiesCard = ({ property }) => {
