@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 import { use } from 'react';
-=======
 import React, { use,  } from 'react';
->>>>>>> 05d8a8a325472d1fe675c66b29ed241ceb7f6d5f
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
