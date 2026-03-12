@@ -43,9 +43,13 @@
 
 import React from 'react';
 import { LuArrowRight } from 'react-icons/lu';
+<<<<<<< HEAD
 import { FaUserTie,   FaTag, FaUser } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import { Link } from 'react-router';
+=======
+import { useLoaderData } from 'react-router-dom';
+>>>>>>> 05d8a8a325472d1fe675c66b29ed241ceb7f6d5f
 
 import { MdEmail } from "react-icons/md";
 
