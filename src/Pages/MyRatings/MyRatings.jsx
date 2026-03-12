@@ -2,7 +2,7 @@ import React from 'react';
 
 const MyRatings = () => {
     return (
-          <div className="lg:hero flex items-center   mx-auto min-h-screen lg:py-30">
+          <div className="px-4 lg:px-8 py-20 flex items-center mx-auto min-h-screen">
             <div className="hero-content flex-col lg:flex-row shrink-0 w-full lg:w-2xl  mx-auto shadow-2xl rounded-2xl">
                
                 <div className="card bg-base-100 w-full  ">

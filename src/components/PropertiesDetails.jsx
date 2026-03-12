@@ -8,7 +8,7 @@ const PropertiesDetails = () => {
   const properties = useLoaderData();
 
   return (
-    <div className="min-h-screen  px-5 lg:px-20 py-16">
+    <div className="min-h-screen px-4 lg:px-8 py-20">
       <div className='my-5 btn'>
         <Link to={'/'} className='font-semibold font-sans text-xl  '>Go Back</Link>
       </div>

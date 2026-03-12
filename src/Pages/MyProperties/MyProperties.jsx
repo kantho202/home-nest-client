@@ -34,9 +34,9 @@ const MyProperties = () => {
         setProperties(prev => prev.map(property => property._id === updateProperty._id ? updateProperty : property))
     }
     return (
-        <div className='px-4 lg:px-8'>
+        <div className='px-4 lg:px-8 py-20'>
             {/* Total properties :  <span>{properties.length}</span> */}
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 py-20 '>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3'>
                 {
                     properties.map(myProperty => <MyPropertiesCard key={myProperty._id}
                         onDelete={handleDelete} onUpdate={handleUpdate}
