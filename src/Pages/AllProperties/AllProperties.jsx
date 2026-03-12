@@ -1,24 +1,10 @@
-<<<<<<< HEAD
 import React, { use, useState, useEffect } from 'react';
-=======
-import React, { use, useState } from 'react';
->>>>>>> 05d8a8a325472d1fe675c66b29ed241ceb7f6d5f
 import { useLoaderData } from 'react-router-dom';
 import AllPropertiesCard from '../../components/AllPropertiesCard';
 import { AuthContext } from '../../context/AuthContext';
 import Loading from '../../components/Loading';
-<<<<<<< HEAD
 import { CiSearch } from "react-icons/ci";
 import { FiChevronLeft, FiChevronRight, FiFilter } from "react-icons/fi";
-=======
-
-
-<<<<<<< HEAD
-
-=======
-import { useQuery } from '@tanstack/react-query';
->>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
->>>>>>> 05d8a8a325472d1fe675c66b29ed241ceb7f6d5f
 
 const AllProperties = () => {
     const data = useLoaderData()
@@ -26,7 +12,6 @@ const AllProperties = () => {
     const [properties, setProperties] = useState(data)
     const [sort, setSort] = useState('property_price')
     const [order, setOrder] = useState("asc")
-<<<<<<< HEAD
     
     // Pagination states
     const [currentPage, setCurrentPage] = useState(1)
@@ -37,49 +22,6 @@ const AllProperties = () => {
     const indexOfLastItem = currentPage * itemsPerPage
     const indexOfFirstItem = indexOfLastItem - itemsPerPage
     const currentProperties = properties.slice(indexOfFirstItem, indexOfLastItem)
-=======
-  const handleSearch = (e) => {
-    e.preventDefault()
-    const search_text = e.target.search.value;
-    console.log(search_text)
-    setLoading(true)
-<<<<<<< HEAD
-    fetch(`https://online-ticket-booking-server.vercel.app/search?search=${search_text}&sort=${sort}&order=${order}`)
-=======
-    fetch(`http://localhost:3000/search?search=${search_text}&sort=${sort}&order=${order}`)
->>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
-      .then(res => res.json())
-      .then(data => {
-        console.log('search ', data)
-        setProperties(data)
-        setLoading(false)
-      })
-  }
- 
-<<<<<<< HEAD
-
-=======
-// const {data: [propertiesHome]}=useQuery({
-//   queryKey:[properties],
-//   queryFn:async()=>{
-//     const result =axiosSecure.get('/search')
-//     return result.data;
-//   }
-// })
->>>>>>> 99fe351fefc9a8c02f989191d2cf7ee7295cb60c
-  // const handleSelect = (e) => {
-  //   const sortText = e.target.value;
-  //   setSort(sortText.split("-")[0])
-  //   setOrder(sortText.split("-")[1])
-  // }
-  const handleSelect = (e) => {
-    // console.log('c')
-  const [field, order] = e.target.value.split("-");
-  setSort(field);
-  setOrder(order);
-};
-  return (
->>>>>>> 05d8a8a325472d1fe675c66b29ed241ceb7f6d5f
 
     // Update total pages when properties change
     useEffect(() => {
@@ -119,20 +61,6 @@ const AllProperties = () => {
         });
         
         setProperties(sortedProperties);
-    }
-
-    // Function to sort properties locally
-    const sortProperties = (propertiesToSort, sortField, sortOrder) => {
-        return [...propertiesToSort].sort((a, b) => {
-            const aPrice = parseFloat(a.property_price) || 0;
-            const bPrice = parseFloat(b.property_price) || 0;
-            
-            if (sortOrder === 'asc') {
-                return aPrice - bPrice;
-            } else {
-                return bPrice - aPrice;
-            }
-        });
     }
 
     // Pagination handlers
