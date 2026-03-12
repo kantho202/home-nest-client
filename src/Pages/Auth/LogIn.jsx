@@ -1,10 +1,8 @@
-import { use } from 'react';
-import React, { use,  } from 'react';
+import React, { use, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
 import { FiEye, FiEyeOff, FiMail, FiLock, FiArrowRight } from 'react-icons/fi';
-import { useState } from 'react';
 
 const LogIn = () => {
     const { signUser, signInWithGoogle } = use(AuthContext)

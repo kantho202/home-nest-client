@@ -1,15 +1,8 @@
 import React from 'react';
 import { LuArrowRight } from 'react-icons/lu';
 import { FaUserTie, FaEnvelope, FaCalendarAlt, FaTag } from 'react-icons/fa';
-
 import { useLoaderData } from 'react-router-dom';
-import { Link } from 'react-router';
-
-
-import { useLoaderData } from 'react-router-dom';
-
-import { useLoaderData } from 'react-router';
-
+import { Link } from 'react-router-dom';
 
 const PropertiesDetails = () => {
   const properties = useLoaderData();
