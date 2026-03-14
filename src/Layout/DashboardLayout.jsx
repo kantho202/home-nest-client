@@ -39,6 +39,16 @@ const DashboardLayout = () => {
             path: '/dashboard'
         },
         {
+            title: 'My Properties',
+            icon: <FiList className="w-5 h-5" />,
+            path: '/dashboard/my-properties'
+        },
+        {
+            title: 'Add Property',
+            icon: <FiPlus className="w-5 h-5" />,
+            path: '/dashboard/add-property'
+        },
+        {
             title: 'Profile Settings',
             icon: <FiSettings className="w-5 h-5" />,
             path: '/dashboard/profile'
@@ -60,7 +70,7 @@ const DashboardLayout = () => {
     return (
         <div className="min-h-screen ">
             {/* Top Navbar */}
-            <nav className=" shadow-sm border-b  fixed w-full top-0 z-50 bg-base-100">
+            <nav className=" shadow-sm   fixed w-full top-0 z-50 bg-base-100">
                 <div className="px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
                         {/* Left side - Logo and Menu Toggle */}
@@ -161,7 +171,7 @@ const DashboardLayout = () => {
             <div className="flex pt-16">
                 {/* Sidebar */}
                 <div className={` 
-                    fixed inset-y-0 left-0 z-40 w-64  shadow-lg transform transition-transform duration-300 ease-in-out pt-16
+                    fixed inset-y-0 left-0 z-40 w-64 bg-base-100 shadow-lg transform transition-transform duration-300 ease-in-out pt-16
                     ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
                     lg:translate-x-0 lg:static lg:inset-0 lg:pt-0
                     `}>
@@ -187,7 +197,7 @@ const DashboardLayout = () => {
                 {/* Mobile sidebar overlay */}
                 {sidebarOpen && (
                     <div
-                        className="fixed inset-0 z-30 bg-gray-600 bg-opacity-50 lg:hidden"
+                        className="fixed inset-0 z-30 bg-gray-200  lg:hidden"
                         onClick={() => setSidebarOpen(false)}
                     ></div>
                 )}

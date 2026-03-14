@@ -20,26 +20,8 @@ Whether you're a property buyer searching for your dream home, a seller looking 
 
 **HomeNest** is a comprehensive real estate listing platform that simplifies property buying and selling through modern web technologies. Built with React 19 and Firebase, it serves as a digital marketplace connecting property buyers, sellers, and real estate professionals.
 
-<<<<<<< HEAD
 The platform features advanced property search, detailed listings with image galleries, secure user authentication, and real-time property management. With a responsive design and intuitive interface, HomeNest provides a seamless experience across all devices.
-=======
-The platform features advanced property search, detailed listings with image galleries, secure user authentication, and real-time property management. With a responsive design and intuitive interface, HomeNest provides a seamless experience across all devices while demonstrating modern full-stack development practices.
 
-<<<<<<< HEAD
-### 🎯 Three Major Features/Services
-• **Advanced Property Search & Filtering** - Powerful search functionality with multiple filter options by location, price range, property type, and amenities
-• **Secure User Authentication & Property Management** - Firebase-powered authentication with personalized dashboards for adding, editing, and managing property listings
-• **Comprehensive Property Listings** - Detailed property information with high-quality image galleries, ratings, reviews, and interactive map integration
-
-### 💻 Used Tech Stacks
-• **Frontend:** React 19, Vite, React Router DOM, Tailwind CSS, DaisyUI
-• **Backend & Database:** Firebase (Authentication, Firestore, Storage)
-• **State Management:** TanStack React Query, Context API
-• **UI/UX Libraries:** React Icons, Lucide React, AOS, Swiper, SweetAlert2, React Toastify
->>>>>>> 38c4fbf9547abfc2ee28d0681726618c53ae3ab9
-
-=======
->>>>>>> 05d8a8a325472d1fe675c66b29ed241ceb7f6d5f
 ## 🌐 Live Demo
 
 **[Visit HomeNest](https://home-nest-f0c86.web.app)**
@@ -187,17 +169,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Dikshit Chakma**
 - GitHub: [@kantho202](https://github.com/kantho202)
-<<<<<<< HEAD
 - LinkedIn: [Dikshit Chakma](https://www.linkedin.com/in/dikshit-chakma)
-=======
-<<<<<<< HEAD
-- LinkedIn: [ LinkedIn](https://www.linkedin.com/in/dikshit-chakma)
-- Email: your.email@example.com
-=======
-- LinkedIn: [Dikshit](https://www.linkedin.com/in/dikshit-chakma)
-- Email: dikshitchakma2002@gmail.com
->>>>>>> 05d8a8a325472d1fe675c66b29ed241ceb7f6d5f
->>>>>>> 38c4fbf9547abfc2ee28d0681726618c53ae3ab9
 
 ## 🙏 Acknowledgments
 
